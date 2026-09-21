@@ -1,0 +1,679 @@
+{
+  "siteName": "思捷網上IT專業培訓",
+  "siteNameEn": "Sijie Online IT Academy",
+  "categories": [
+    {
+      "catId": "gen-ai",
+      "catName": "生成式AI課程",
+      "catNameEn": "Generative AI",
+      "catDesc": "學習各類生成式人工智慧技術與工具，從基礎到實戰，把 AI 真正運用到工作與專案之中。",
+      "catDescEn": "Learn generative AI tools and models from basics to hands-on projects, and put AI to work for you.",
+      "catImage": "images/courses/genai-cover.jpg",
+      "courses": [
+        {
+          "courseId": "genai-01",
+          "title": "Succeed in the Age of AI",
+          "titleEn": "Succeed in the Age of AI",
+          "imageUrl": "images/courses/genai-01.jpg",
+          "level": "初級-中級",
+          "levelEn": "Beginner-Intermediate",
+          "rating": 4.7,
+          "reviewCount": 3590,
+          "studentCount": 48200,
+          "duration": "8小時30分鐘",
+          "durationEn": "8h 30m",
+          "price": 11.99,
+          "originalPrice": 19.99,
+          "popularTag": "暢銷課程｜最高評分",
+          "popularTagEn": "Bestseller | Top Rated",
+          "videoUrl": "",
+          "pointsReward": 50,
+          "description": "本課程教導你善用生成式AI加快學習速度、提升編碼與工作效率，在工作與求職中取得更好成果。課程包含多個真實職場情境練習，適合所有想運用AI提升生產力的開發人員與職場人士。",
+          "descriptionEn": "This course teaches you how to use generative AI to learn faster, code better, and work more productively. Includes multiple real-world workplace exercises.",
+          "whatYouLearn": [
+            "掌握主流生成式AI工具與模型的基本操作",
+            "懂得撰寫有效指令以取得高品質輸出",
+            "把AI整合進日常工作流程，提升生產力",
+            "了解AI的局限與倫理議題"
+          ],
+          "audience": "初階開發人員、產品經理、任何想用AI提升效率的職場人士",
+          "outline": [
+            "第一章：AI 時代工作方式總覽",
+            "第二章：主流生成式AI工具介紹",
+            "第三章：高效指令撰寫技巧",
+            "第四章：把AI融入日常開發工作",
+            "第五章：AI 倫理與局限",
+            "第六章：期末實作專案"
+          ]
+        },
+        {
+          "courseId": "genai-02",
+          "title": "生成式AI基礎實務",
+          "titleEn": "Generative AI Fundamentals",
+          "imageUrl": "images/courses/genai-02.jpg",
+          "level": "初級",
+          "levelEn": "Beginner",
+          "rating": 4.4,
+          "reviewCount": 1250,
+          "studentCount": 19800,
+          "duration": "6小時15分鐘",
+          "durationEn": "6h 15m",
+          "price": 14.99,
+          "originalPrice": 24.99,
+          "popularTag": "新課程",
+          "popularTagEn": "New",
+          "videoUrl": "",
+          "pointsReward": 40,
+          "description": "認識主流生成式AI模型（文字、圖像、影音），學習基本的使用方法，親手完成簡單的AI生成專案，建立對AI工具的直觀認識。",
+          "descriptionEn": "Get to know mainstream generative AI models and complete your first AI generation projects.",
+          "whatYouLearn": [
+            "了解文字、圖像、影音等生成式AI的基本原理",
+            "能獨立使用工具生成內容",
+            "完成一個小型AI生成專案"
+          ],
+          "audience": "完全沒有AI經驗、想入門的學習者",
+          "outline": [
+            "第一章：什麼是生成式AI",
+            "第二章：文字生成工具實作",
+            "第三章：圖像生成工具實作",
+            "第四章：影音生成初探",
+            "第五章：綜合實作專案"
+          ]
+        },
+        {
+          "courseId": "genai-03",
+          "title": "AI專案落地實戰",
+          "titleEn": "AI Project Implementation Bootcamp",
+          "imageUrl": "images/courses/genai-03.jpg",
+          "level": "中級",
+          "levelEn": "Intermediate",
+          "rating": 4.8,
+          "reviewCount": 2130,
+          "studentCount": 24100,
+          "duration": "10小時45分鐘",
+          "durationEn": "10h 45m",
+          "price": 18.99,
+          "originalPrice": 29.99,
+          "popularTag": "熱門課程",
+          "popularTagEn": "Hot",
+          "videoUrl": "",
+          "pointsReward": 60,
+          "description": "把生成式AI整合到真實業務流程，完整走過專案規劃、資料準備、模型選用、測試與部署的每個環節，讓你具備主導AI專案落地的能力。",
+          "descriptionEn": "Integrate generative AI into real business flows and lead an AI project from planning to deployment.",
+          "whatYouLearn": [
+            "能評估並選用合適的AI方案",
+            "規劃並執行完整的AI專案",
+            "處理資料與整合既有系統",
+            "掌握部署與監控的基本方法"
+          ],
+          "audience": "具備基礎AI知識、想實戰落地的開發人員與專案經理",
+          "outline": [
+            "第一章：AI專案規劃方法論",
+            "第二章：資料準備與品質管理",
+            "第三章：模型選型與評估",
+            "第四章：系統整合與部署",
+            "第五章：監控與持續優化",
+            "第六章：完整專案實作"
+          ]
+        }
+      ]
+    },
+    {
+      "catId": "it-cert",
+      "catName": "IT認證課程",
+      "catNameEn": "IT Certification",
+      "catDesc": "備考各項國際IT專業證照，提供考綱講解、重點整理與模擬練習，助你一次考取理想認證。",
+      "catDescEn": "Prepare for international IT certifications with exam-focused content and practice tests.",
+      "catImage": "images/courses/itcert-cover.jpg",
+      "courses": [
+        {
+          "courseId": "itcert-01",
+          "title": "CompTIA A+ 認證備考班",
+          "titleEn": "CompTIA A+ Exam Prep",
+          "imageUrl": "images/courses/itcert-01.jpg",
+          "level": "初級",
+          "levelEn": "Beginner",
+          "rating": 4.6,
+          "reviewCount": 2740,
+          "studentCount": 31200,
+          "duration": "18小時",
+          "durationEn": "18h",
+          "price": 12.99,
+          "originalPrice": 22.99,
+          "popularTag": "暢銷課程",
+          "popularTagEn": "Bestseller",
+          "videoUrl": "",
+          "pointsReward": 55,
+          "description": "完整講解 CompTIA A+ 考試兩個模組（Core 1 & Core 2）的內容，搭配大量模擬試題，協助學員建立硬體、軟體與網絡基礎並成功取得證照。",
+          "descriptionEn": "Full coverage of CompTIA A+ Core 1 & Core 2 with practice tests to help you pass.",
+          "whatYouLearn": [
+            "掌握A+核心硬體與作業系統知識",
+            "熟悉網絡基礎與安全觀念",
+            "透過模擬試題熟悉考題形式",
+            "取得求職加分證照"
+          ],
+          "audience": "IT入行者、想考取A+認證的學習者",
+          "outline": [
+            "第一章：硬體基礎與組裝",
+            "第二章：作業系統與維護",
+            "第三章：網絡基礎",
+            "第四章：安全與故障排除",
+            "第五章：模擬試題解析"
+          ]
+        },
+        {
+          "courseId": "itcert-02",
+          "title": "Azure基礎認證 AI-900",
+          "titleEn": "Microsoft Azure AI-900",
+          "imageUrl": "images/courses/itcert-02.jpg",
+          "level": "初級-中級",
+          "levelEn": "Beginner-Intermediate",
+          "rating": 4.5,
+          "reviewCount": 1610,
+          "studentCount": 18900,
+          "duration": "9小時20分鐘",
+          "durationEn": "9h 20m",
+          "price": 13.99,
+          "originalPrice": 23.99,
+          "popularTag": "雲端課程",
+          "popularTagEn": "Cloud",
+          "videoUrl": "",
+          "pointsReward": 55,
+          "description": "專為微軟 Azure AI-900 認證設計的課程，清楚解釋雲端AI服務的觀念、工作負載與考試重點，幫助零基礎學員理解雲端AI並應考。",
+          "descriptionEn": "Designed for the Azure AI-900 exam, covering cloud AI concepts and exam essentials.",
+          "whatYouLearn": [
+            "理解Azure雲端平台與AI服務",
+            "認識機器學習與電腦視覺服務",
+            "掌握AI-900考試範圍與答題技巧"
+          ],
+          "audience": "雲端AI初學者、想考取Azure認證的學員",
+          "outline": [
+            "第一章：Azure與雲端AI概覽",
+            "第二章：機器學習服務",
+            "第三章：電腦視覺與語言服務",
+            "第四章：AI責任與治理",
+            "第五章：考試重點複習"
+          ]
+        },
+        {
+          "courseId": "itcert-03",
+          "title": "網絡安全基礎 CompTIA Security+",
+          "titleEn": "CompTIA Security+",
+          "imageUrl": "images/courses/itcert-03.jpg",
+          "level": "中級",
+          "levelEn": "Intermediate",
+          "rating": 4.7,
+          "reviewCount": 1920,
+          "studentCount": 22100,
+          "duration": "14小時30分鐘",
+          "durationEn": "14h 30m",
+          "price": 15.99,
+          "originalPrice": 25.99,
+          "popularTag": "熱門課程",
+          "popularTagEn": "Hot",
+          "videoUrl": "",
+          "pointsReward": 60,
+          "description": "網絡安全基礎與實務課程，涵蓋威脅、漏洞、加密、身分驗證與應變流程，助你備考 Security+ 認證並建立資安實戰觀念。",
+          "descriptionEn": "Cybersecurity fundamentals covering threats, encryption, identity and incident response for the Security+ exam.",
+          "whatYouLearn": [
+            "識別常見威脅與攻擊手法",
+            "掌握加密與身分驗證原理",
+            "建立資安事件應變能力",
+            "備考Security+認證"
+          ],
+          "audience": "具基礎IT知識、想轉型資安的從業人員",
+          "outline": [
+            "第一章：資安威脅與漏洞",
+            "第二章：加密與密碼學",
+            "第三章：身分與存取管理",
+            "第四章：網絡與主機安全",
+            "第五章：事件應變與監控"
+          ]
+        }
+      ]
+    },
+    {
+      "catId": "data-science",
+      "catName": "數據科學",
+      "catNameEn": "Data Science",
+      "catDesc": "從Python、資料處理到機器學習與視覺化，循序漸進掌握數據科學的完整技能鏈。",
+      "catDescEn": "Master the full data science skill stack from Python to ML and visualization.",
+      "catImage": "images/courses/ds-cover.jpg",
+      "courses": [
+        {
+          "courseId": "ds-01",
+          "title": "Python數據分析入門",
+          "titleEn": "Python for Data Analysis",
+          "imageUrl": "images/courses/ds-01.jpg",
+          "level": "初級",
+          "levelEn": "Beginner",
+          "rating": 4.6,
+          "reviewCount": 3120,
+          "studentCount": 35800,
+          "duration": "11小時",
+          "durationEn": "11h",
+          "price": 11.99,
+          "originalPrice": 19.99,
+          "popularTag": "暢銷課程",
+          "popularTagEn": "Bestseller",
+          "videoUrl": "",
+          "pointsReward": 45,
+          "description": "使用 Pandas、Matplotlib 等工具進行資料清洗、處理與視覺化，從真實資料集出發，完成你的第一份數據分析報告。",
+          "descriptionEn": "Clean, process and visualize data with Pandas and Matplotlib using real datasets.",
+          "whatYouLearn": [
+            "掌握Python基礎語法",
+            "使用Pandas處理表格資料",
+            "用Matplotlib繪製專業圖表",
+            "完成一份完整數據分析報告"
+          ],
+          "audience": "沒有程式基礎、想踏入數據領域的學習者",
+          "outline": [
+            "第一章：Python基礎語法",
+            "第二章：Pandas資料處理",
+            "第三章：資料視覺化",
+            "第四章：真實資料集實作",
+            "第五章：分析報告撰寫"
+          ]
+        },
+        {
+          "courseId": "ds-02",
+          "title": "可視化數據實務",
+          "titleEn": "Data Visualization in Practice",
+          "imageUrl": "images/courses/ds-02.jpg",
+          "level": "初-中級",
+          "levelEn": "Beginner-Intermediate",
+          "rating": 4.4,
+          "reviewCount": 1480,
+          "studentCount": 16700,
+          "duration": "7小時40分鐘",
+          "durationEn": "7h 40m",
+          "price": 13.99,
+          "originalPrice": 21.99,
+          "popularTag": "實務導向",
+          "popularTagEn": "Practical",
+          "videoUrl": "",
+          "pointsReward": 50,
+          "description": "把複雜數據轉換成清晰易懂的圖表與儀表板，學習選圖邏輯、顏色運用與商業簡報技巧。",
+          "descriptionEn": "Turn complex data into clear charts and dashboards with smart chart selection and presentation skills.",
+          "whatYouLearn": [
+            "學會依資料性質選擇合適圖表",
+            "製作美觀的商業儀表板",
+            "掌握資料敘事與簡報技巧"
+          ],
+          "audience": "數據分析師、市場、營運與管理人員",
+          "outline": [
+            "第一章：視覺化設計原則",
+            "第二章：圖表類型選擇",
+            "第三章：製作互動儀表板",
+            "第四章：資料敘事與簡報"
+          ]
+        },
+        {
+          "courseId": "ds-03",
+          "title": "機器學習基礎",
+          "titleEn": "Machine Learning Fundamentals",
+          "imageUrl": "images/courses/ds-03.jpg",
+          "level": "中級",
+          "levelEn": "Intermediate",
+          "rating": 4.7,
+          "reviewCount": 2350,
+          "studentCount": 27600,
+          "duration": "13小時15分鐘",
+          "durationEn": "13h 15m",
+          "price": 17.99,
+          "originalPrice": 27.99,
+          "popularTag": "高評分",
+          "popularTagEn": "Top Rated",
+          "videoUrl": "",
+          "pointsReward": 65,
+          "description": "從監督式學習到模型評估，使用真實資料集動手訓練預測模型，建立機器學習的完整思考框架。",
+          "descriptionEn": "Build and evaluate ML models with real datasets, from supervised learning to evaluation.",
+          "whatYouLearn": [
+            "理解監督式學習核心概念",
+            "訓練並評估預測模型",
+            "掌握特徵工程與模型選擇",
+            "用真實資料完成專案"
+          ],
+          "audience": "具Python基礎、想深入ML的學習者",
+          "outline": [
+            "第一章：機器學習概論",
+            "第二章：迴歸與分類",
+            "第三章：模型評估與調參",
+            "第四章：特徵工程",
+            "第五章：期末專案"
+          ]
+        }
+      ]
+    },
+    {
+      "catId": "chatgpt-biz",
+      "catName": "ChatGPT商業應用",
+      "catNameEn": "ChatGPT for Business",
+      "catDesc": "把大語言模型工具運用在營銷、文書、客服與流程自動化，提升企業營運效率。",
+      "catDescEn": "Apply large language models to marketing, documents, support and automation.",
+      "catImage": "images/courses/cb-cover.jpg",
+      "courses": [
+        {
+          "courseId": "cb-01",
+          "title": "ChatGPT營銷文案自動生成",
+          "titleEn": "ChatGPT for Marketing Copy",
+          "imageUrl": "images/courses/cb-01.jpg",
+          "level": "初級",
+          "levelEn": "Beginner",
+          "rating": 4.3,
+          "reviewCount": 1820,
+          "studentCount": 21300,
+          "duration": "5小時50分鐘",
+          "durationEn": "5h 50m",
+          "price": 9.99,
+          "originalPrice": 17.99,
+          "popularTag": "入門課程",
+          "popularTagEn": "Beginner",
+          "videoUrl": "",
+          "pointsReward": 35,
+          "description": "教導使用 ChatGPT 撰寫社交媒體貼文、廣告文案、電郵與產品描述，建立一套可重複使用的文案生成流程。",
+          "descriptionEn": "Learn to generate social posts, ad copy, emails and product descriptions with ChatGPT.",
+          "whatYouLearn": [
+            "掌握營銷文案的指令框架",
+            "快速生成多平台文案",
+            "建立品牌一致的表達風格"
+          ],
+          "audience": "市場營銷人員、創業者、內容創作者",
+          "outline": [
+            "第一章：ChatGPT基礎與帳號設定",
+            "第二章：社交媒體貼文生成",
+            "第三章：廣告與產品文案",
+            "第四章：電郵與EDM",
+            "第五章：建立文案模板庫"
+          ]
+        },
+        {
+          "courseId": "cb-02",
+          "title": "辦公室流程AI自動化",
+          "titleEn": "Office Workflow Automation with AI",
+          "imageUrl": "images/courses/cb-02.jpg",
+          "level": "初-中級",
+          "levelEn": "Beginner-Intermediate",
+          "rating": 4.5,
+          "reviewCount": 2010,
+          "studentCount": 18900,
+          "duration": "7小時15分鐘",
+          "durationEn": "7h 15m",
+          "price": 12.99,
+          "originalPrice": 20.99,
+          "popularTag": "熱門課程",
+          "popularTagEn": "Hot",
+          "videoUrl": "",
+          "pointsReward": 45,
+          "description": "利用 ChatGPT 簡化報告整理、會議紀錄、數據摘要與文書處理等日常繁瑣工作，把時間留給更有價值的事。",
+          "descriptionEn": "Simplify reports, meeting minutes, data summaries and document work with ChatGPT.",
+          "whatYouLearn": [
+            "自動化會議紀錄與摘要",
+            "快速整理長文件重點",
+            "建立辦公室效率指令庫"
+          ],
+          "audience": "行政、文書、主管及任何想提升辦公效率的人",
+          "outline": [
+            "第一章：文書處理自動化",
+            "第二章：會議紀錄與摘要",
+            "第三章：數據摘要與分析",
+            "第四章：工作流程串聯"
+          ]
+        },
+        {
+          "courseId": "cb-03",
+          "title": "客戶服務AI對話設計",
+          "titleEn": "AI Customer Service Dialogue Design",
+          "imageUrl": "images/courses/cb-03.jpg",
+          "level": "中級",
+          "levelEn": "Intermediate",
+          "rating": 4.6,
+          "reviewCount": 1330,
+          "studentCount": 12400,
+          "duration": "8小時20分鐘",
+          "durationEn": "8h 20m",
+          "price": 14.99,
+          "originalPrice": 22.99,
+          "popularTag": "商務專用",
+          "popularTagEn": "Business",
+          "videoUrl": "",
+          "pointsReward": 50,
+          "description": "設計有效的對話指令與知識庫，打造能協助客戶查詢資訊、解決常見問題的AI客服助手，並掌握人工接手與品質把關機制。",
+          "descriptionEn": "Design dialogue prompts and knowledge bases to build an effective AI customer service assistant.",
+          "whatYouLearn": [
+            "設計對話式客服指令",
+            "建立與維護客服知識庫",
+            "設定轉人工與品質把關機制"
+          ],
+          "audience": "客服主管、產品經理、企業營運人員",
+          "outline": [
+            "第一章：對話式客服設計原則",
+            "第二章：指令與知識庫建置",
+            "第三章：常見情境對話設計",
+            "第四章：品質監控與轉人工"
+          ]
+        }
+      ]
+    },
+    {
+      "catId": "prompt-eng",
+      "catName": "提示語工程",
+      "catNameEn": "Prompt Engineering",
+      "catDesc": "設計高品質提示詞，精準引導AI輸出理想結果，是掌握大語言模型的關鍵技能。",
+      "catDescEn": "Design high-quality prompts to guide AI output precisely.",
+      "catImage": "images/courses/pe-cover.jpg",
+      "courses": [
+        {
+          "courseId": "pe-01",
+          "title": "提示詞撰寫基礎",
+          "titleEn": "Prompt Writing Fundamentals",
+          "imageUrl": "images/courses/pe-01.jpg",
+          "level": "初級",
+          "levelEn": "Beginner",
+          "rating": 4.4,
+          "reviewCount": 2430,
+          "studentCount": 27600,
+          "duration": "5小時30分鐘",
+          "durationEn": "5h 30m",
+          "price": 10.99,
+          "originalPrice": 18.99,
+          "popularTag": "入門必學",
+          "popularTagEn": "Essentials",
+          "videoUrl": "",
+          "pointsReward": 40,
+          "description": "基礎提示詞架構，學習明確指令、角色設定、輸出格式控制等核心技巧，讓AI一開口就答得對。",
+          "descriptionEn": "Core prompt structures, role-setting and output format control to get AI answers right the first time.",
+          "whatYouLearn": [
+            "掌握提示詞四大要素",
+            "學會角色與情境設定",
+            "控制輸出格式與品質"
+          ],
+          "audience": "想精準使用AI的任何人",
+          "outline": [
+            "第一章：提示詞基本架構",
+            "第二章：指令與角色設定",
+            "第三章：輸出格式控制",
+            "第四章：常見錯誤修正"
+          ]
+        },
+        {
+          "courseId": "pe-02",
+          "title": "進階鏈式提示詞設計",
+          "titleEn": "Advanced Chain-of-Thought Prompting",
+          "imageUrl": "images/courses/pe-02.jpg",
+          "level": "中級",
+          "levelEn": "Intermediate",
+          "rating": 4.7,
+          "reviewCount": 1720,
+          "studentCount": 15800,
+          "duration": "8小時10分鐘",
+          "durationEn": "8h 10m",
+          "price": 13.99,
+          "originalPrice": 21.99,
+          "popularTag": "高評分",
+          "popularTagEn": "Top Rated",
+          "videoUrl": "",
+          "pointsReward": 50,
+          "description": "多步驟與鏈式提示詞串聯，讓AI完成複雜任務，例如完整專案策劃、深度分析與長文撰寫。",
+          "descriptionEn": "Multi-step and chain-of-thought prompting for complex tasks like planning and deep analysis.",
+          "whatYouLearn": [
+            "拆解複雜任務成提示詞步驟",
+            "運用思維鏈提升推理品質",
+            "設計多輪迭代流程"
+          ],
+          "audience": "已具提示詞基礎、想處理複雜任務的進階使用者",
+          "outline": [
+            "第一章：任務拆解方法",
+            "第二章：思維鏈提示技巧",
+            "第三章：多步驟流程設計",
+            "第四章：進階實作案例"
+          ]
+        },
+        {
+          "courseId": "pe-03",
+          "title": "專業場景Prompt模板庫",
+          "titleEn": "Professional Prompt Template Library",
+          "imageUrl": "images/courses/pe-03.jpg",
+          "level": "初-中級",
+          "levelEn": "Beginner-Intermediate",
+          "rating": 4.5,
+          "reviewCount": 1140,
+          "studentCount": 13200,
+          "duration": "6小時45分鐘",
+          "durationEn": "6h 45m",
+          "price": 11.99,
+          "originalPrice": 19.99,
+          "popularTag": "模板導向",
+          "popularTagEn": "Templates",
+          "videoUrl": "",
+          "pointsReward": 42,
+          "description": "取得涵蓋營銷、教育、程式、文案等不同行業的現成提示詞模板，直接修改參數即可投入使用，省時又高效。",
+          "descriptionEn": "Ready-to-use prompt templates across industries — just tweak parameters and go.",
+          "whatYouLearn": [
+            "獲得大量現成專業模板",
+            "懂得按場景調整參數",
+            "建立自己的模板庫"
+          ],
+          "audience": "各行業希望快速上手提示詞的使用者",
+          "outline": [
+            "第一章：模板設計原則",
+            "第二章：營銷與文案模板",
+            "第三章：程式與教育模板",
+            "第四章：建立個人模板庫"
+          ]
+        }
+      ]
+    },
+    {
+      "catId": "excel",
+      "catName": "微軟Excel",
+      "catNameEn": "Microsoft Excel",
+      "catDesc": "從函數、公式、樞紐分析到Power Query，徹底掌握職場最實用的數據處理工具。",
+      "catDescEn": "From functions to PivotTables and Power Query, master Excel for work.",
+      "catImage": "images/courses/ex-cover.jpg",
+      "courses": [
+        {
+          "courseId": "ex-01",
+          "title": "Excel函數與公式入門",
+          "titleEn": "Excel Functions & Formulas",
+          "imageUrl": "images/courses/ex-01.jpg",
+          "level": "初級",
+          "levelEn": "Beginner",
+          "rating": 4.6,
+          "reviewCount": 3820,
+          "studentCount": 42500,
+          "duration": "9小時",
+          "durationEn": "9h",
+          "price": 9.99,
+          "originalPrice": 16.99,
+          "popularTag": "暢銷課程",
+          "popularTagEn": "Bestseller",
+          "videoUrl": "",
+          "pointsReward": 35,
+          "description": "常用邏輯、查詢與統計函數教學，配合大量實例解決日常表格計算需求，讓資料處理又快又準。",
+          "descriptionEn": "Common logical, lookup and statistical functions with real examples for faster, accurate data work.",
+          "whatYouLearn": [
+            "掌握IF、VLOOKUP等核心函數",
+            "運用條件格式與資料驗證",
+            "快速完成日常計算需求"
+          ],
+          "audience": "想打好Excel基礎的辦公室人員與學生",
+          "outline": [
+            "第一章：Excel介面與基本操作",
+            "第二章：核心函數（IF/VLOOKUP）",
+            "第三章：統計與文字函數",
+            "第四章：條件格式與資料驗證",
+            "第五章：綜合練習"
+          ]
+        },
+        {
+          "courseId": "ex-02",
+          "title": "數據透視表完整教學",
+          "titleEn": "PivotTable Masterclass",
+          "imageUrl": "images/courses/ex-02.jpg",
+          "level": "初-中級",
+          "levelEn": "Beginner-Intermediate",
+          "rating": 4.5,
+          "reviewCount": 2240,
+          "studentCount": 26800,
+          "duration": "6小時30分鐘",
+          "durationEn": "6h 30m",
+          "price": 11.99,
+          "originalPrice": 18.99,
+          "popularTag": "辦公必備",
+          "popularTagEn": "Office Essential",
+          "videoUrl": "",
+          "pointsReward": 40,
+          "description": "透視表分組、篩選、計算欄位與圖表化，快速分析大量表格數據，製作專業的經營報表。",
+          "descriptionEn": "Group, filter and visualize data with PivotTables for professional business reports.",
+          "whatYouLearn": [
+            "建立與美化數據透視表",
+            "使用計算欄位與切片器",
+            "製作出具洞察力的報表"
+          ],
+          "audience": "需頻繁分析數據的行政、財務與業務人員",
+          "outline": [
+            "第一章：透視表基本操作",
+            "第二章：分組與篩選",
+            "第三章：計算欄位與項目",
+            "第四章：切片器與圖表",
+            "第五章：實務報表製作"
+          ]
+        },
+        {
+          "courseId": "ex-03",
+          "title": "Excel Power Query數據處理",
+          "titleEn": "Power Query Data Processing",
+          "imageUrl": "images/courses/ex-03.jpg",
+          "level": "中級",
+          "levelEn": "Intermediate",
+          "rating": 4.7,
+          "reviewCount": 1560,
+          "studentCount": 14300,
+          "duration": "7小時55分鐘",
+          "durationEn": "7h 55m",
+          "price": 13.99,
+          "originalPrice": 21.99,
+          "popularTag": "進階實務",
+          "popularTagEn": "Advanced",
+          "videoUrl": "",
+          "pointsReward": 48,
+          "description": "使用 Power Query 自動清洗、合併多份表格資料，重複性工作一鍵完成，大幅減少手動作業。",
+          "descriptionEn": "Automate data cleaning and merging with Power Query to cut repetitive manual work.",
+          "whatYouLearn": [
+            "用Power Query自動化資料清洗",
+            "合併與追加多份表格",
+            "建立可重複執行的處理流程"
+          ],
+          "audience": "需處理大量表格資料的數據工作者",
+          "outline": [
+            "第一章：Power Query入門",
+            "第二章：資料清洗技巧",
+            "第三章：合併與追加查詢",
+            "第四章：自動化處理流程"
+          ]
+        }
+      ]
+    }
+  ]
+}

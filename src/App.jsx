@@ -6,9 +6,24 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { useEffect } from 'react';  // 加入這個組件 for scrollToTop function
+import { useLocation } from 'react-router-dom'; // 加入這個組件 for scrollToTop function
+
+// 加入這個組件 for scrollToTop function
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
+    <>
+    <ScrollToTop />   {/* ← 加入這個組件 for scrollToTop function */}
     <Routes>
       {/* Layer 1：首頁 */}
       <Route path="/" element={<HomePage />} />
@@ -23,6 +38,7 @@ function App() {
       {/* 404 */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </>
   );
 }
 

@@ -7,28 +7,35 @@ const Footer = () => {
   const t = {
     zh: {
       site: '思捷網上IT專業培訓',
-      about: '關於我們',
       desc: '提供生成式AI、IT認證、數據科學、ChatGPT商業應用、提示語工程與微軟Excel等優質線上課程，讓你隨時隨地自主學習、提升專業技能。',
       nav: '快速導覽',
       home: '首頁',
       genai: '生成式AI課程',
       itcert: 'IT認證課程',
       datascience: '數據科學',
+      chatgptbiz: 'ChatGPT商業應用',
+      prompteng: '提示語工程',
+      excel: '微軟Excel',
       info: '網站資訊',
+      about: '關於我們',
       privacy: '私隱政策',
       contact: '聯絡我們',
       rights: '版權所有',
     },
     en: {
       site: 'Sijie Online IT Academy',
-      about: 'About Us',
+      
       desc: 'Quality online courses in Generative AI, IT Certification, Data Science, ChatGPT for Business, Prompt Engineering and Microsoft Excel.',
       nav: 'Quick Links',
       home: 'Home',
       genai: 'Generative AI',
       itcert: 'IT Certification',
       datascience: 'Data Science',
+      chatgptbiz: 'ChatGPT for Business',
+      prompteng: 'Prompt Engineering',
+      excel: 'Microsoft Excel',
       info: 'Information',
+      about: 'About Us',
       privacy: 'Privacy Policy',
       contact: 'Contact Us',
       rights: 'All rights reserved',
@@ -49,6 +56,9 @@ const Footer = () => {
             <li><Link to="/category/gen-ai">{t.genai}</Link></li>
             <li><Link to="/category/it-cert">{t.itcert}</Link></li>
             <li><Link to="/category/data-science">{t.datascience}</Link></li>
+            <li><Link to="/category/chatgpt-biz">{t.chatgptbiz}</Link></li>
+            <li><Link to="/category/prompt-eng">{t.prompteng}</Link></li>
+            <li><Link to="/category/excel">{t.excel}</Link></li>
           </ul>
         </div>
         <div className="footer-col">

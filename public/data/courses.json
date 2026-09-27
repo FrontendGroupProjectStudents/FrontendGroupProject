@@ -36,14 +36,14 @@
             "把AI整合進日常工作流程，提升生產力",
             "了解AI的局限與倫理議題"
           ],
-         "whatYouLearnEn": [
+          "whatYouLearnEn": [
             "Master basic operations of mainstream generative-AI tools and models",
             "Write effective prompts for high-quality outputs",
             "Integrate AI into daily workflows to boost productivity",
             "Understand AI limitations and ethical considerations"
           ],
           "audience": "初階開發人員、產品經理、任何想用AI提升效率的職場人士",
-	  "audienceEn": "Junior developers, product managers, and any professionals wanting to improve efficiency with AI",
+          "audienceEn": "Junior developers, product managers, and any professionals wanting to improve efficiency with AI",
           "outline": [
             "第一章：AI 時代工作方式總覽",
             "第二章：主流生成式AI工具介紹",
@@ -92,7 +92,7 @@
             "Complete a small-scale AI generation project"
           ],
           "audience": "完全沒有AI經驗、想入門的學習者",
-	  "audienceEn": "Learners with zero prior AI experience who want to get started",
+          "audienceEn": "Learners with zero prior AI experience who want to get started",
           "outline": [
             "第一章：什麼是生成式AI",
             "第二章：文字生成工具實作",
@@ -508,7 +508,7 @@
             "Build consistent brand voice and tone"
           ],
           "audience": "市場營銷人員、創業者、內容創作者",
-	  "audienceEn": "Marketing staff, entrepreneurs and content creators",
+          "audienceEn": "Marketing staff, entrepreneurs and content creators",
           "outline": [
             "第一章：ChatGPT基礎與帳號設定",
             "第二章：社交媒體貼文生成",

@@ -16,7 +16,7 @@
 ## 專案結構
 
 ```
-FrontendGroupProject/
+sijie-it-academy/
 ├── index.html
 ├── package.json
 ├── vite.config.js          # base:'./' 支援 GitHub Pages 子路徑部署

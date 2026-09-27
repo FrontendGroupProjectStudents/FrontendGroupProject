@@ -285,7 +285,6 @@
           "pointsReward": 60,
           "description": "網絡安全基礎與實務課程，涵蓋威脅、漏洞、加密、身分驗證與應變流程，助你備考 Security+ 認證並建立資安實戰觀念。",
           "descriptionEn": "Cybersecurity fundamentals covering threats, encryption, identity and incident response for the Security+ exam.",
-          ],
           "whatYouLearn": [
             "識別常見威脅與攻擊手法",
             "掌握加密與身分驗證原理",

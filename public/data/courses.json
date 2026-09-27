@@ -36,7 +36,14 @@
             "把AI整合進日常工作流程，提升生產力",
             "了解AI的局限與倫理議題"
           ],
+         "whatYouLearnEn": [
+            "Master basic operations of mainstream generative-AI tools and models",
+            "Write effective prompts for high-quality outputs",
+            "Integrate AI into daily workflows to boost productivity",
+            "Understand AI limitations and ethical considerations"
+          ],
           "audience": "初階開發人員、產品經理、任何想用AI提升效率的職場人士",
+	  "audienceEn": "Junior developers, product managers, and any professionals wanting to improve efficiency with AI",
           "outline": [
             "第一章：AI 時代工作方式總覽",
             "第二章：主流生成式AI工具介紹",
@@ -44,6 +51,14 @@
             "第四章：把AI融入日常開發工作",
             "第五章：AI 倫理與局限",
             "第六章：期末實作專案"
+          ],
+          "outlineEn": [
+            "Chapter 1: Overview of Working in the AI Era",
+            "Chapter 2: Introduction to Mainstream Generative-AI Tools",
+            "Chapter 3: Techniques for Writing Effective Prompts",
+            "Chapter 4: Integrating AI into Daily Development Work",
+            "Chapter 5: AI Ethics and Limitations",
+            "Chapter 6: Final Hands-on Project"
           ]
         },
         {
@@ -71,13 +86,26 @@
             "能獨立使用工具生成內容",
             "完成一個小型AI生成專案"
           ],
+          "whatYouLearnEn": [
+            "Understand basic principles of text, image and video generative AI",
+            "Independently generate content using AI tools",
+            "Complete a small-scale AI generation project"
+          ],
           "audience": "完全沒有AI經驗、想入門的學習者",
+	  "audienceEn": "Learners with zero prior AI experience who want to get started",
           "outline": [
             "第一章：什麼是生成式AI",
             "第二章：文字生成工具實作",
             "第三章：圖像生成工具實作",
             "第四章：影音生成初探",
             "第五章：綜合實作專案"
+          ],
+          "outlineEn": [
+            "Chapter 1: What is Generative AI",
+            "Chapter 2: Hands-on with Text-Generation Tools",
+            "Chapter 3: Hands-on with Image-Generation Tools",
+            "Chapter 4: Introduction to Audio-Video Generation",
+            "Chapter 5: Comprehensive Hands-on Project"
           ]
         },
         {
@@ -106,7 +134,14 @@
             "處理資料與整合既有系統",
             "掌握部署與監控的基本方法"
           ],
+          "whatYouLearnEn": [
+            "Evaluate and select suitable AI solutions",
+            "Plan and deliver end-to-end AI projects",
+            "Process data and integrate with existing systems",
+            "Grasp fundamental deployment and monitoring practices"
+          ],
           "audience": "具備基礎AI知識、想實戰落地的開發人員與專案經理",
+          "audienceEn": "Developers and project managers with basic AI knowledge wanting real-world implementation experience",
           "outline": [
             "第一章：AI專案規劃方法論",
             "第二章：資料準備與品質管理",
@@ -114,6 +149,14 @@
             "第四章：系統整合與部署",
             "第五章：監控與持續優化",
             "第六章：完整專案實作"
+          ],
+          "outlineEn": [
+            "Chapter 1: AI Project Planning Methodology",
+            "Chapter 2: Data Preparation and Quality Management",
+            "Chapter 3: Model Selection and Evaluation",
+            "Chapter 4: System Integration and Deployment",
+            "Chapter 5: Monitoring and Continuous Optimization",
+            "Chapter 6: Full-scale Practical Project"
           ]
         }
       ]
@@ -152,13 +195,27 @@
             "透過模擬試題熟悉考題形式",
             "取得求職加分證照"
           ],
+          "whatYouLearnEn": [
+            "Master core A+ hardware and operating-system knowledge",
+            "Get familiar with networking fundamentals and security concepts",
+            "Understand exam format via practice questions",
+            "Obtain a job-boosting certification"
+          ],
           "audience": "IT入行者、想考取A+認證的學習者",
+          "audienceEn": "IT beginners and learners aiming for the CompTIA A+ certification",
           "outline": [
             "第一章：硬體基礎與組裝",
             "第二章：作業系統與維護",
             "第三章：網絡基礎",
             "第四章：安全與故障排除",
             "第五章：模擬試題解析"
+          ],
+          "outlineEn": [
+            "Chapter 1: Hardware Fundamentals and Assembly",
+            "Chapter 2: Operating Systems and Maintenance",
+            "Chapter 3: Networking Basics",
+            "Chapter 4: Security and Troubleshooting",
+            "Chapter 5: Practice Question Walkthroughs"
           ]
         },
         {
@@ -186,13 +243,26 @@
             "認識機器學習與電腦視覺服務",
             "掌握AI-900考試範圍與答題技巧"
           ],
+          "whatYouLearnEn": [
+            "Understand Azure cloud platform and AI services",
+            "Get to know machine-learning and computer-vision services",
+            "Master AI-900 exam scope and test-taking strategies"
+          ],
           "audience": "雲端AI初學者、想考取Azure認證的學員",
+          "audienceEn": "Cloud-AI beginners and learners pursuing Azure certification",
           "outline": [
             "第一章：Azure與雲端AI概覽",
             "第二章：機器學習服務",
             "第三章：電腦視覺與語言服務",
             "第四章：AI責任與治理",
             "第五章：考試重點複習"
+          ],
+          "outlineEn": [
+            "Chapter 1: Overview of Azure and Cloud AI",
+            "Chapter 2: Machine-Learning Services",
+            "Chapter 3: Computer Vision and Language Services",
+            "Chapter 4: Responsible AI and Governance",
+            "Chapter 5: Exam-focused Review"
           ]
         },
         {
@@ -215,19 +285,34 @@
           "pointsReward": 60,
           "description": "網絡安全基礎與實務課程，涵蓋威脅、漏洞、加密、身分驗證與應變流程，助你備考 Security+ 認證並建立資安實戰觀念。",
           "descriptionEn": "Cybersecurity fundamentals covering threats, encryption, identity and incident response for the Security+ exam.",
+          ],
           "whatYouLearn": [
             "識別常見威脅與攻擊手法",
             "掌握加密與身分驗證原理",
             "建立資安事件應變能力",
             "備考Security+認證"
           ],
+          "whatYouLearnEn": [
+            "Identify common threats and attack vectors",
+            "Grasp encryption and authentication principles",
+            "Build cybersecurity incident-response capabilities",
+            "Prepare for the CompTIA Security+ certification exam"
+          ],
           "audience": "具基礎IT知識、想轉型資安的從業人員",
+          "audienceEn": "Professionals with basic IT knowledge looking to transition into cybersecurity",
           "outline": [
             "第一章：資安威脅與漏洞",
             "第二章：加密與密碼學",
             "第三章：身分與存取管理",
             "第四章：網絡與主機安全",
             "第五章：事件應變與監控"
+          ],
+          "outlineEn": [
+            "Chapter 1: Cybersecurity Threats and Vulnerabilities",
+            "Chapter 2: Encryption and Cryptography",
+            "Chapter 3: Identity and Access Management",
+            "Chapter 4: Network and Host Security",
+            "Chapter 5: Incident Response and Monitoring"
           ]
         }
       ]
@@ -266,13 +351,27 @@
             "用Matplotlib繪製專業圖表",
             "完成一份完整數據分析報告"
           ],
+          "whatYouLearnEn": [
+            "Master basic Python syntax",
+            "Process tabular data with Pandas",
+            "Create professional charts with Matplotlib",
+            "Deliver a complete data-analysis report"
+          ],
           "audience": "沒有程式基礎、想踏入數據領域的學習者",
+          "audienceEn": "Learners with zero programming background who want to enter the data field",
           "outline": [
             "第一章：Python基礎語法",
             "第二章：Pandas資料處理",
             "第三章：資料視覺化",
             "第四章：真實資料集實作",
             "第五章：分析報告撰寫"
+          ],
+          "outlineEn": [
+            "Chapter 1: Basic Python Syntax",
+            "Chapter 2: Data Processing with Pandas",
+            "Chapter 3: Data Visualization",
+            "Chapter 4: Hands-on with Real-world Datasets",
+            "Chapter 5: Writing Analysis Reports"
           ]
         },
         {
@@ -300,12 +399,24 @@
             "製作美觀的商業儀表板",
             "掌握資料敘事與簡報技巧"
           ],
+          "whatYouLearnEn": [
+            "Select suitable charts according to data characteristics",
+            "Build polished business dashboards",
+            "Master data-storytelling and presentation techniques"
+          ],
           "audience": "數據分析師、市場、營運與管理人員",
+          "audienceEn": "Data analysts, marketing, operation and management staff",
           "outline": [
             "第一章：視覺化設計原則",
             "第二章：圖表類型選擇",
             "第三章：製作互動儀表板",
             "第四章：資料敘事與簡報"
+          ],
+          "outlineEn": [
+            "Chapter 1: Visualization Design Principles",
+            "Chapter 2: Chart-type Selection",
+            "Chapter 3: Building Interactive Dashboards",
+            "Chapter 4: Data Storytelling and Presentations"
           ]
         },
         {
@@ -334,13 +445,27 @@
             "掌握特徵工程與模型選擇",
             "用真實資料完成專案"
           ],
+          "whatYouLearnEn": [
+            "Understand core supervised-learning concepts",
+            "Train and evaluate prediction models",
+            "Master feature engineering and model selection",
+            "Complete projects using real-world data"
+          ],
           "audience": "具Python基礎、想深入ML的學習者",
+          "audienceEn": "Learners with Python basics who want to dive deeper into machine learning",
           "outline": [
             "第一章：機器學習概論",
             "第二章：迴歸與分類",
             "第三章：模型評估與調參",
             "第四章：特徵工程",
             "第五章：期末專案"
+          ],
+          "outlineEn": [
+            "Chapter 1: Introduction to Machine Learning",
+            "Chapter 2: Regression and Classification",
+            "Chapter 3: Model Evaluation and Tuning",
+            "Chapter 4: Feature Engineering",
+            "Chapter 5: Final Project"
           ]
         }
       ]
@@ -378,13 +503,26 @@
             "快速生成多平台文案",
             "建立品牌一致的表達風格"
           ],
+          "whatYouLearnEn": [
+            "Master prompt frameworks for marketing copy",
+            "Quickly generate copy for multiple platforms",
+            "Build consistent brand voice and tone"
+          ],
           "audience": "市場營銷人員、創業者、內容創作者",
+	  "audienceEn": "Marketing staff, entrepreneurs and content creators",
           "outline": [
             "第一章：ChatGPT基礎與帳號設定",
             "第二章：社交媒體貼文生成",
             "第三章：廣告與產品文案",
             "第四章：電郵與EDM",
             "第五章：建立文案模板庫"
+          ],
+          "outlineEn": [
+            "Chapter 1: ChatGPT Basics and Account Setup",
+            "Chapter 2: Generating Social-Media Posts",
+            "Chapter 3: Advertisement and Product Copywriting",
+            "Chapter 4: Emails and EDM Campaigns",
+            "Chapter 5: Building a Copy-Template Library"
           ]
         },
         {
@@ -412,12 +550,24 @@
             "快速整理長文件重點",
             "建立辦公室效率指令庫"
           ],
+          "whatYouLearnEn": [
+            "Automate meeting minutes and summaries",
+            "Quickly extract key points from long documents",
+            "Build a prompt library for office productivity"
+          ],
           "audience": "行政、文書、主管及任何想提升辦公效率的人",
+          "audienceEn": "Administrative staff, clerks, managers and anyone wanting higher office productivity",
           "outline": [
             "第一章：文書處理自動化",
             "第二章：會議紀錄與摘要",
             "第三章：數據摘要與分析",
             "第四章：工作流程串聯"
+          ],
+          "outlineEn": [
+            "Chapter 1: Document-processing Automation",
+            "Chapter 2: Meeting Minutes and Summarization",
+            "Chapter 3: Data Summarization and Analysis",
+            "Chapter 4: Workflow Chaining"
           ]
         },
         {
@@ -445,12 +595,24 @@
             "建立與維護客服知識庫",
             "設定轉人工與品質把關機制"
           ],
+          "whatYouLearnEn": [
+            "Design conversational prompts for customer support",
+            "Build and maintain customer-service knowledge bases",
+            "Configure human-escalation and quality-control workflows"
+          ],
           "audience": "客服主管、產品經理、企業營運人員",
+          "audienceEn": "Customer-service supervisors, product managers and enterprise operation staff",
           "outline": [
             "第一章：對話式客服設計原則",
             "第二章：指令與知識庫建置",
             "第三章：常見情境對話設計",
             "第四章：品質監控與轉人工"
+          ],
+          "outlineEn": [
+            "Chapter 1: Conversational Customer-Service Design Principles",
+            "Chapter 2: Prompt and Knowledge-base Setup",
+            "Chapter 3: Dialogue Design for Common Scenarios",
+            "Chapter 4: Quality Monitoring and Human Hand-off"
           ]
         }
       ]
@@ -488,12 +650,24 @@
             "學會角色與情境設定",
             "控制輸出格式與品質"
           ],
+          "whatYouLearnEn": [
+            "Grasp the four core elements of prompting",
+            "Learn role and scenario setup techniques",
+            "Control output format and quality"
+          ],
           "audience": "想精準使用AI的任何人",
+          "audienceEn": "Anyone who wants to use AI with higher precision",
           "outline": [
             "第一章：提示詞基本架構",
             "第二章：指令與角色設定",
             "第三章：輸出格式控制",
             "第四章：常見錯誤修正"
+          ],
+          "outlineEn": [
+            "Chapter 1: Basic Prompt Structure",
+            "Chapter 2: Instructions and Role Setting",
+            "Chapter 3: Output Format Control",
+            "Chapter 4: Fixing Common Prompting Mistakes"
           ]
         },
         {
@@ -521,12 +695,24 @@
             "運用思維鏈提升推理品質",
             "設計多輪迭代流程"
           ],
+          "whatYouLearnEn": [
+            "Break complex tasks into sequential prompt steps",
+            "Improve reasoning quality with chain-of-thought techniques",
+            "Design multi-round iterative workflows"
+          ],
           "audience": "已具提示詞基礎、想處理複雜任務的進階使用者",
+          "audienceEn": "Advanced learners with basic prompting knowledge wanting to handle complex tasks",
           "outline": [
             "第一章：任務拆解方法",
             "第二章：思維鏈提示技巧",
             "第三章：多步驟流程設計",
             "第四章：進階實作案例"
+          ],
+          "outlineEn": [
+            "Chapter 1: Task-decomposition Methods",
+            "Chapter 2: Chain-of-Thought Prompting Techniques",
+            "Chapter 3: Multi-step Workflow Design",
+            "Chapter 4: Advanced Practical Cases"
           ]
         },
         {
@@ -554,12 +740,24 @@
             "懂得按場景調整參數",
             "建立自己的模板庫"
           ],
+          "whatYouLearnEn": [
+            "Access a large collection of ready-made professional templates",
+            "Adjust template parameters for different scenarios",
+            "Build your personal template library"
+          ],
           "audience": "各行業希望快速上手提示詞的使用者",
+          "audienceEn": "Cross-industry users who want to get productive with prompting quickly",
           "outline": [
             "第一章：模板設計原則",
             "第二章：營銷與文案模板",
             "第三章：程式與教育模板",
             "第四章：建立個人模板庫"
+          ],
+          "outlineEn": [
+            "Chapter 1: Template-design Principles",
+            "Chapter 2: Marketing and Copywriting Templates",
+            "Chapter 3: Coding and Education Templates",
+            "Chapter 4: Building Your Personal Template Library"
           ]
         }
       ]
@@ -597,13 +795,26 @@
             "運用條件格式與資料驗證",
             "快速完成日常計算需求"
           ],
+          "whatYouLearnEn": [
+            "Master core functions such as IF and VLOOKUP",
+            "Apply conditional formatting and data validation",
+            "Quickly complete daily calculation tasks"
+          ],
           "audience": "想打好Excel基礎的辦公室人員與學生",
+          "audienceEn": "Office workers and students who want solid foundational Excel skills",
           "outline": [
             "第一章：Excel介面與基本操作",
             "第二章：核心函數（IF/VLOOKUP）",
             "第三章：統計與文字函數",
             "第四章：條件格式與資料驗證",
             "第五章：綜合練習"
+          ],
+          "outlineEn": [
+            "Chapter 1: Excel Interface and Basic Operations",
+            "Chapter 2: Core Functions (IF / VLOOKUP)",
+            "Chapter 3: Statistical and Text Functions",
+            "Chapter 4: Conditional Formatting and Data Validation",
+            "Chapter 5: Comprehensive Exercises"
           ]
         },
         {
@@ -631,13 +842,26 @@
             "使用計算欄位與切片器",
             "製作出具洞察力的報表"
           ],
+          "whatYouLearnEn": [
+            "Create and format polished PivotTables",
+            "Work with calculated fields and slicers",
+            "Produce insightful business reports"
+          ],
           "audience": "需頻繁分析數據的行政、財務與業務人員",
+          "audienceEn": "Administrative, finance and business staff who frequently analyse data",
           "outline": [
             "第一章：透視表基本操作",
             "第二章：分組與篩選",
             "第三章：計算欄位與項目",
             "第四章：切片器與圖表",
             "第五章：實務報表製作"
+          ],
+          "outlineEn": [
+            "Chapter 1: PivotTable Basic Operations",
+            "Chapter 2: Grouping and Filtering",
+            "Chapter 3: Calculated Fields and Items",
+            "Chapter 4: Slicers and Charts",
+            "Chapter 5: Practical Report Creation"
           ]
         },
         {
@@ -665,12 +889,24 @@
             "合併與追加多份表格",
             "建立可重複執行的處理流程"
           ],
+          "whatYouLearnEn": [
+            "Automate data cleaning workflows with Power Query",
+            "Merge and append multiple tables",
+            "Build repeatable data-processing pipelines"
+          ],
           "audience": "需處理大量表格資料的數據工作者",
+          "audienceEn": "Data practitioners handling large volumes of tabular data",
           "outline": [
             "第一章：Power Query入門",
             "第二章：資料清洗技巧",
             "第三章：合併與追加查詢",
             "第四章：自動化處理流程"
+          ],
+          "outlineEn": [
+            "Chapter 1: Getting Started with Power Query",
+            "Chapter 2: Data-cleaning Techniques",
+            "Chapter 3: Merge and Append Queries",
+            "Chapter 4: Automated Processing Pipelines"
           ]
         }
       ]

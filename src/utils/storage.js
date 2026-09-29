@@ -1,10 +1,12 @@
-// 本地儲存工具：處理會員、登入、積分、購物車
+// 本地儲存工具：處理會員、登入、積分、購物車、我的課程
 // 由於 GitHub Pages 沒有後端伺服器，無法把資料寫回 .json 檔案，
 // 故使用瀏覽器 localStorage 模擬資料庫持久化（每位訪客各有一份，清除瀏覽資料會遺失）。
 
 const USERS_KEY = 'sijie_users';
 const CURRENT_USER_KEY = 'sijie_current_user';
 const CART_KEY = 'sijie_cart';
+// 我的課程 加到 storage.js
+const PURCHASED_COURSES_KEY = 'sijie_purchased_courses';
 
 const safeParse = (raw, fallback) => {
   if (!raw) return fallback;
@@ -96,3 +98,13 @@ export const cartStorage = {
     localStorage.removeItem(CART_KEY);
   },
 };
+
+// 我的課程 加到 storage.js
+export const courseStorage = {
+  getPurchasedCourses() {
+    return safeParse(localStorage.getItem(PURCHASED_COURSES_KEY), []);
+  },
+  savePurchasedCourses(list) {
+    localStorage.setItem(PURCHASED_COURSES_KEY, JSON.stringify(list));
+  }
+}

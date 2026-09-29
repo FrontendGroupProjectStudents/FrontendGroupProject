@@ -401,3 +401,44 @@ main { min-height: 60vh; }
   .footer-container { grid-template-columns: 1fr; }
   .header-actions { flex-wrap: wrap; }
 }
+/* ========= Navbar課程下拉選單 ========= */
+.nav-dropdown-wrap {
+  position: relative;
+}
+.nav-dropdown-btn {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  color: var(--text);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: inherit;
+}
+.nav-dropdown-btn:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: #fff;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  border:1px solid var(--border);
+  z-index:150;
+  overflow:hidden;
+  margin-top:4px;
+}
+.nav-dropdown-item {
+  display:block;
+  padding:10px 16px;
+  color:var(--text);
+  transition: background 0.18s ease;
+}
+.nav-dropdown-item:hover {
+  background-color: var(--bg-soft);
+  color: var(--primary);
+}

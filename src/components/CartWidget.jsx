@@ -1,10 +1,8 @@
 import { useApp } from '../context/AppContext';
 import { Link } from 'react-router-dom';
-
 // 購物車圖示按鈕 + 側邊購物車抽屜
 const CartWidget = () => {
-  const { lang, cart, cartOpen, setCartOpen, removeFromCart, currentUser, purchaseCourse } = useApp();
-
+  const { lang, cart, cartOpen, setCartOpen, removeFromCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
   const t = {
     zh: {
       cart: '購物車',
@@ -16,6 +14,7 @@ const CartWidget = () => {
       total: '合計',
       purchased: '已完成結帳，獲得 {pts} 積分！',
       continue: '繼續瀏覽',
+      courseAlreadyBoughtPrefix: '{courseName}：該課程已經購買，請在購物車上取消'
     },
     en: {
       cart: 'Cart',
@@ -27,10 +26,16 @@ const CartWidget = () => {
       total: 'Total',
       purchased: 'Checkout complete! You earned {pts} points.',
       continue: 'Continue browsing',
+      courseAlreadyBoughtPrefix: '{courseName}: This course has already been purchased, please remove it from cart'
     },
   }[lang];
 
   const total = cart.reduce((sum, c) => sum + (Number(c.price) || 0), 0);
+
+  // 取得當前語言對應課程名稱
+  const getCourseDisplayTitle = (course) => {
+    return lang === 'zh' ? course.title : course.titleEn;
+  };
 
   const handleCheckout = () => {
     if (!currentUser) {
@@ -38,11 +43,26 @@ const CartWidget = () => {
       setCartOpen(false);
       return;
     }
+
+    // 找出購物車裡所有已經購買的課程
+    const duplicateCourses = cart.filter(cartCourse => {
+      return purchasedCourses.some(bought => bought.courseId === cartCourse.courseId);
+    });
+
+    if (duplicateCourses.length > 0) {
+      // 把全部重複課程名稱組合提示訊息
+      const duplicateNames = duplicateCourses.map(item => getCourseDisplayTitle(item));
+      let alertMsg = '';
+      duplicateNames.forEach(name => {
+        alertMsg += t.courseAlreadyBoughtPrefix.replace('{courseName}', name) + '\n';
+      });
+      alert(alertMsg);
+      return;
+    }
+
     const pointsEarned = cart.reduce((sum, c) => sum + (c.pointsReward || 0), 0);
-    // 逐筆課程結帳並累積積分
     cart.forEach((c) => purchaseCourse(c));
     alert(t.purchased.replace('{pts}', pointsEarned));
-    // 清空購物車（模擬購買完成）
     localStorage.removeItem('sijie_cart');
     window.location.reload();
   };
@@ -53,7 +73,6 @@ const CartWidget = () => {
         🛒 {t.cart}
         {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
       </button>
-
       {cartOpen && (
         <div className="cart-backdrop" onClick={() => setCartOpen(false)}>
           <aside className="cart-drawer" onClick={(e) => e.stopPropagation()} aria-label="購物車">
@@ -69,7 +88,8 @@ const CartWidget = () => {
                   {cart.map((c) => (
                     <li key={c.courseId} className="cart-item">
                       <Link to={`/course/${c.courseId}`} onClick={() => setCartOpen(false)}>
-                        <span className="cart-item-title">{c.title}</span>
+                        {/* ✅ 修改：動態讀取對應語言課程標題 */}
+                        <span className="cart-item-title">{getCourseDisplayTitle(c)}</span>
                       </Link>
                       <div className="cart-item-bottom">
                         <span className="price-now">US${c.price}</span>
@@ -100,5 +120,4 @@ const CartWidget = () => {
     </>
   );
 };
-
 export default CartWidget;

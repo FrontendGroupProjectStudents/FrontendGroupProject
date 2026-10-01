@@ -181,7 +181,7 @@ const CourseDetailPage = () => {
         <section className="course-content-section">
           <h2>{t.whatLearn}</h2>
           <ul className="check-list">
-            {(lang === 'zh' ? course.whatYouLearn : course.whatYouLearn).map((item, i) => (
+            {(lang === 'zh' ? course.whatYouLearn : course.whatYouLearnEn).map((item, i) => (
               <li key={i}>✔ {item}</li>
             ))}
           </ul>
@@ -191,7 +191,7 @@ const CourseDetailPage = () => {
         <section className="course-content-section">
           <h2>{t.outlineTitle}</h2>
           <ol className="outline-list">
-            {(lang === 'zh' ? course.outline : course.outline).map((item, i) => (
+            {(lang === 'zh' ? course.outline : course.outlineEn).map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ol>
@@ -200,7 +200,7 @@ const CourseDetailPage = () => {
         {/* 適合對象 */}
         <section className="course-content-section">
           <h2>{t.audienceTitle}</h2>
-          <p>{course.audience}</p>
+          <p>{lang === 'zh' ? course.audience : course.audienceEn}</p>
         </section>
       </main>
       <Footer />

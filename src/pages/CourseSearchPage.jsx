@@ -1,207 +1,136 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CourseCard from '../components/CourseCard';
 import { useApp } from '../context/AppContext';
 
-// Layer 3：課程詳情頁（18 門課共用同一模板，內容由 courses.json 按 courseId 讀取）
+// Layer 2：課程搜尋頁（包含即時搜尋功能）
 const CourseSearchPage = () => {
-  const { courseId } = useParams();
-  const { lang, addToCart, cart } = useApp();
-  const [course, setCourse] = useState(null);
+  const { lang } = useApp();
+  const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     setLoading(true);
     fetch(`${import.meta.env.BASE_URL}data/courses.json`)
       .then((res) => res.json())
       .then((data) => {
-        let found = null;
-        for (const cat of data.categories) {
-          const c = cat.courses.find((x) => x.courseId === courseId);
-          if (c) { found = c; break; }
+        if (!data || !data.categories) {
+          setCategory(null);
+          setLoading(false);
+          return;
         }
-        setCourse(found);
+
+        // 直接取出所有類別下的課程並合併成 ALL
+        const allCourses = data.categories.flatMap((c) => c.courses || []);
+
+        setCategory({
+          catId: 'ALL',
+          catName: '所有課程',
+          catNameEn: 'All Courses',
+          catDesc: '瀏覽思捷網上IT專業培訓提供的所有優質課程。',
+          catDescEn: 'Browse all available courses offered by Sijie Online IT Academy.',
+          catImage: 'images/courses/genai-cover.jpg',
+          courses: allCourses,
+        });
+
         setLoading(false);
       })
       .catch((err) => {
-        console.error('載入課程失敗', err);
+        console.error('載入分類失敗', err);
         setLoading(false);
       });
-  }, [courseId]);
+  }, []);
 
   const t = {
     zh: {
-      back: '← 返回',
-      loading: '課程載入中…',
-      notFound: '找不到該課程',
-      home: '返回首頁',
-      videoTitle: '課程預覽',
-      videoPlaceholder: '課程介紹影片（5–10 秒）將於此處播放',
-      videoSoon: '短片製作中，敬請期待',
-      rating: '評分',
-      reviews: '則評價',
-      students: '學員',
-      duration: '課程時長',
-      level: '課程等級',
-      priceNote: '限時優惠',
-      buyNow: '立即購買',
-      addCart: '加入購物車',
-      inCart: '已在購物車',
-      earnPoints: '購買可賺取積分',
-      points: '積分',
-      whatLearn: '你將學到',
-      outlineTitle: '課程大綱',
-      audienceTitle: '適合對象',
-      audience: '適合對象',
-      overview: '課程簡介',
-      added: '已加入購物車！',
+      back: '← 返回首頁',
+      loading: '載入中…',
+      notFound: '找不到此課程分類',
+      courseCount: (n) => `共 ${n} 門課程`,
+      searchPlaceholder: '搜尋課程編號、名稱、難易度或描述…',
+      noSearchResult: '沒有找到符合搜尋條件的課程',
     },
     en: {
-      back: '← Back',
-      loading: 'Loading course…',
-      notFound: 'Course not found',
-      home: 'Back to Home',
-      videoTitle: 'Course Preview',
-      videoPlaceholder: 'Course intro video (5-10s) will play here',
-      videoSoon: 'Video coming soon',
-      rating: 'Rating',
-      reviews: 'reviews',
-      students: 'students',
-      duration: 'Duration',
-      level: 'Level',
-      priceNote: 'Limited-time offer',
-      buyNow: 'Buy Now',
-      addCart: 'Add to Cart',
-      inCart: 'In Cart',
-      earnPoints: 'Earn points by purchasing',
-      points: 'points',
-      whatLearn: 'What You Will Learn',
-      outlineTitle: 'Course Outline',
-      audienceTitle: 'Who This Course Is For',
-      audience: 'Audience',
-      overview: 'Overview',
-      added: 'Added to cart!',
+      back: '← Back to Home',
+      loading: 'Loading…',
+      notFound: 'Category not found',
+      courseCount: (n) => `${n} courses`,
+      searchPlaceholder: 'Search course ID, title, level, or description…',
+      noSearchResult: 'No courses found matching your search.',
     },
   }[lang];
 
-  if (loading) {
-    return (
-      <>
-        <Header />
-        <main><p className="page-message">{t.loading}</p></main>
-        <Footer />
-      </>
-    );
-  }
+  // 即時搜尋過濾邏輯：指定 7 個欄位
+  const filteredCourses = (category?.courses || []).filter((course) => {
+    if (!searchQuery.trim()) return true;
 
-  if (!course) {
-    return (
-      <>
-        <Header />
-        <main className="page-message">
-          <h2>{t.notFound}</h2>
-          <Link to="/">{t.home}</Link>
-        </main>
-        <Footer />
-      </>
-    );
-  }
+    const query = searchQuery.toLowerCase().trim();
+    const fieldsToSearch = [
+      course.courseId,
+      course.title,
+      course.titleEn,
+      course.level,
+      course.levelEn,
+      course.description,
+      course.descriptionEn,
+    ];
 
-  const inCart = cart.some((c) => c.courseId === course.courseId);
+    return fieldsToSearch.some(
+      (field) => field && field.toString().toLowerCase().includes(query)
+    );
+  });
 
   return (
     <>
       <Header />
-      <main className="course-detail-main">
-        <Link to={`/category/${'cat'}`} className="back-link" style={{ display: 'none' }}>{t.back}</Link>
-
-        {/* 課程頁頭：左圖右資訊 */}
-        <section className="course-detail-hero">
-          <div className="course-detail-cover">
-            <img src={course.imageUrl} alt={course.title} />
-          </div>
-          <div className="course-detail-info">
-            <h1>{lang === 'zh' ? course.title : course.titleEn}</h1>
-            <div className="course-meta-line">
-              <span className="meta-rating">⭐ {course.rating} ({course.reviewCount} {t.reviews})</span>
-              <span>{t.students}：{course.studentCount.toLocaleString()}</span>
-            </div>
-            <div className="course-meta-line">
-              <span>{t.duration}：{lang === 'zh' ? course.duration : course.durationEn}</span>
-              <span>｜ {t.level}：{lang === 'zh' ? course.level : course.levelEn}</span>
-            </div>
-            <div className="course-price-block">
-              <span className="price-note">{t.priceNote}</span>
-              <div className="price-row">
-                <span className="price-now price-lg">US${course.price}</span>
-                <span className="price-original">US${course.originalPrice}</span>
+      <main>
+        {loading ? (
+          <p className="page-message">{t.loading}</p>
+        ) : !category ? (
+          <p className="page-message">{t.notFound}</p>
+        ) : (
+          <>
+            {/* 分類頁頭 */}
+            <section className="category-page-head">
+              <div className="category-page-cover">
+                <img src={category.catImage} alt={category.catName} />
               </div>
-              <span className="points-reward">
-                🏆 {t.points}：+{course.pointsReward} {t.earnPoints}
-              </span>
-            </div>
-            <div className="course-cta-row">
-              {inCart ? (
-                <button className="btn btn-disabled" disabled>{t.inCart}</button>
+              <div className="category-page-info">
+                <h1>{lang === 'zh' ? category.catName : category.catNameEn}</h1>
+                <p>{lang === 'zh' ? category.catDesc : category.catDescEn}</p>
+                <span className="course-count">
+                  {t.courseCount(filteredCourses.length)}
+                </span>
+              </div>
+            </section>
+
+            {/* 即時搜尋輸入框 */}
+            <section className="search-bar-section" style={{ padding: '20px 0', textAlign: 'center' }}>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t.searchPlaceholder}
+                className="search-input"
+              />
+            </section>
+
+            {/* 課程列表 */}
+            <section className="course-list-section" aria-label="課程列表">
+              {filteredCourses.length === 0 ? (
+                <p className="page-message">{t.noSearchResult}</p>
               ) : (
-                <button className="btn btn-primary btn-lg" onClick={() => { addToCart(course); alert(t.added); }}>
-                  {t.addCart}
-                </button>
+                <div className="course-grid">
+                  {filteredCourses.map((course) => (
+                    <CourseCard course={course} key={course.courseId} />
+                  ))}
+                </div>
               )}
-            </div>
-          </div>
-        </section>
-
-        {/* 影片預覽區（5–10 秒介紹短片，可後續填入 videoUrl） */}
-        <section className="course-video-section">
-          <h2>{t.videoTitle}</h2>
-          {course.videoUrl ? (
-            <div className="video-frame">
-              <video src={course.videoUrl} controls preload="metadata" width="100%" />
-            </div>
-          ) : (
-            <div className="video-placeholder">
-              <span className="video-play-icon">▶</span>
-              <p>{t.videoPlaceholder}</p>
-              <small>{t.videoSoon}</small>
-            </div>
-          )}
-        </section>
-
-        {/* 課程簡介 */}
-        <section className="course-content-section">
-          <article className="course-overview">
-            <h2>{t.overview}</h2>
-            <p>{lang === 'zh' ? course.description : course.descriptionEn}</p>
-          </article>
-        </section>
-
-        {/* 你將學到 */}
-        <section className="course-content-section">
-          <h2>{t.whatLearn}</h2>
-          <ul className="check-list">
-            {(lang === 'zh' ? course.whatYouLearn : course.whatYouLearnEn).map((item, i) => (
-              <li key={i}>✔ {item}</li>
-            ))}
-          </ul>
-        </section>
-
-        {/* 課程大綱 */}
-        <section className="course-content-section">
-          <h2>{t.outlineTitle}</h2>
-          <ol className="outline-list">
-            {(lang === 'zh' ? course.outline : course.outlineEn).map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ol>
-        </section>
-
-        {/* 適合對象 */}
-        <section className="course-content-section">
-          <h2>{t.audienceTitle}</h2>
-          <p>{lang === 'zh' ? course.audience : course.audienceEn}</p>
-        </section>
+            </section>
+          </>
+        )}
       </main>
       <Footer />
     </>

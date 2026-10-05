@@ -384,6 +384,18 @@ main { min-height: 60vh; }
 .page-message { text-align: center; padding: 80px 20px; color: var(--muted); }
 .big-404 { font-size: 4rem; color: var(--primary); }
 
+
+/* ===== 即時搜尋輸入框 ===== */
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
 /* ===== 響應式 ===== */
 @media (max-width: 900px) {
   .course-detail-cover { flex: 1 1 100%; }

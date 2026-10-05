@@ -2,6 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import CourseDetailPage from './pages/CourseDetailPage';
+
+import CourseSearchPage from './pages/CourseSearchPage';
+
+
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -32,6 +36,9 @@ function App() {
       {/* Layer 3：18 個課程詳情頁（共用模板） */}
       <Route path="/course/:courseId" element={<CourseDetailPage />} />
       {/* 輔助頁面 */}
+
+      <Route path="/filter" element={<CourseSearchPage />} />
+
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />

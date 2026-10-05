@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CategoryCard from '../components/CategoryCard';
+
+import CourseSearchPage from './CourseSearchPage';
+
 import { useApp } from '../context/AppContext';
+
 
 const HomePage = () => {
   const { lang } = useApp();
@@ -55,7 +59,7 @@ const HomePage = () => {
           <div className="hero-inner">
             <h1 className="hero-title">{t.heroTitle}</h1>
             <p className="hero-sub">{t.heroSub}</p>
-            <a href="#courses" className="btn btn-primary btn-lg">{t.heroCta}</a>
+            <a href="#filter" className="btn btn-primary btn-lg">{t.heroCta}</a>
           </div>
         </section>
 

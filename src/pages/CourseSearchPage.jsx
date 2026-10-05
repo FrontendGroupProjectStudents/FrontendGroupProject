@@ -31,7 +31,7 @@ const CourseSearchPage = () => {
           catNameEn: 'All Courses',
           catDesc: '瀏覽思捷網上IT專業培訓提供的所有優質課程。',
           catDescEn: 'Browse all available courses offered by Sijie Online IT Academy.',
-          catImage: 'images/courses/genai-cover.jpg',
+          catImage: 'images/courses/CourseFilterImages.jpg',
           courses: allCourses,
         });
 

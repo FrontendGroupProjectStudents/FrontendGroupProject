@@ -9,6 +9,7 @@ import CourseSearchPage from './pages/CourseSearchPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
+import QuizPage from './pages/QuizPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { useEffect } from 'react';  // 加入這個組件 for scrollToTop function
 import { useLocation } from 'react-router-dom'; // 加入這個組件 for scrollToTop function
@@ -42,6 +43,7 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/qna" element={<QuizPage />} /> {/* Benson */}
       {/* 404 */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

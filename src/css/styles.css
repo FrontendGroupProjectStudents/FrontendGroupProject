@@ -372,11 +372,32 @@ main { min-height: 60vh; }
 /* ===== 輔助頁 ===== */
 .page-hero { background: linear-gradient(135deg, #3c2378, #6c3ef0); color: #fff; padding: 60px 20px; text-align: center; }
 .page-hero h1 { font-size: 2rem; }
+.quiz-page-hero { padding: 24px 20px; }
 .content-section { max-width: 860px; margin: 0 auto; padding: 40px 20px; }
 .page-text p { margin-bottom: 16px; color: var(--muted); }
 .privacy-item { margin-bottom: 20px; }
 .privacy-item h3 { color: var(--dark); margin-bottom: 6px; }
 .privacy-item p { color: var(--muted); }
+.qna-quiz { display: flex; flex-direction: column; gap: 22px; }
+.qna-question { min-width: 0; border: 0; border-bottom: 1px solid var(--border); padding: 0 0 18px; }
+.qna-question legend { width: 100%; margin-bottom: 10px; font-weight: 700; }
+.qna-option { display: flex; align-items: flex-start; gap: 10px; margin: 8px 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+.qna-option input { margin-top: 6px; accent-color: var(--primary); }
+.qna-option.is-correct { border-color: var(--success); background: #e8f7ee; }
+.qna-option.is-incorrect { border-color: var(--danger); background: #fff1f2; }
+.qna-explanation { margin-top: 10px; color: var(--muted); }
+.qna-score { padding: 14px 16px; border-radius: 6px; background: var(--bg-soft); font-size: 1.1rem; font-weight: 700; }
+.qna-actions { display: flex; justify-content: flex-end; }
+.qna-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
+.quiz-restart-actions { padding-top: 12px; }
+.quiz-start-actions { padding-top: 12px; }
+.quiz-course-fieldset { min-width: 0; border: 0; }
+.quiz-course-fieldset legend { margin-bottom: 8px; font-weight: 700; }
+.quiz-course-hint { margin-bottom: 16px; color: var(--muted); }
+.quiz-course-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.quiz-course-option { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+.quiz-course-option input { flex: 0 0 auto; accent-color: var(--primary); }
+.quiz-course-option span { min-width: 0; overflow-wrap: anywhere; }
 
 .contact-form-wrap { max-width: 560px; margin: 0 auto; }
 .success-message { background: #e8f7ee; color: var(--success); padding: 16px; border-radius: 8px; text-align: center; font-weight: 600; }

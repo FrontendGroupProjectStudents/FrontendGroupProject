@@ -48,6 +48,7 @@ const Header = () => {
       site: '思捷網上IT專業培訓',
       home: '首頁',
       courses: '課程',
+      qna: '測驗',  // Benson
       myCourses: '我的課程',
       login: '登入',
       register: '註冊',
@@ -59,6 +60,7 @@ const Header = () => {
       site: 'Sijie Online IT Academy',
       home: 'Home',
       courses: 'Courses',
+      qna: 'Quiz',  // Benson
       myCourses: 'My Courses',
       login: 'Login',
       register: 'Register',
@@ -106,6 +108,10 @@ const Header = () => {
 
           <div className="header-actions">
             <LanguageSwitch lang={lang} onToggle={toggleLang} />
+            <Link to="/qna" className="btn btn-ghost btn-sm">
+            {/* Benson */}
+              {t.qna}
+            </Link>
             <button className="btn btn-ghost btn-sm" onClick={() => setMyCoursesOpen(true)}>
               📚 {t.myCourses}
             </button>

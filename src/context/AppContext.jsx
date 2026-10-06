@@ -60,6 +60,13 @@ export const AppProvider = ({ children }) => {
     setCart(cartStorage.getCart());
   }, []);
 
+  const awardPoints = useCallback((amount) => {
+    if (!currentUser || amount <= 0) return false;
+    userStorage.addPoints(amount);
+    setCurrentUser(userStorage.getCurrentUser());
+    return true;
+  }, [currentUser]);
+
   // ==========【購買課程】==========
   const purchaseCourse = useCallback((course, callback) => {
     if (!currentUser) {
@@ -92,6 +99,7 @@ export const AppProvider = ({ children }) => {
     cart,
     addToCart,
     removeFromCart,
+    awardPoints,
     purchaseCourse,
     cartOpen,
     setCartOpen,

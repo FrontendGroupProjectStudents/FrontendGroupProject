@@ -109,7 +109,7 @@ const Header = () => {
             <LanguageSwitch lang={lang} onToggle={toggleLang} />
             <Link to="/qna" className="btn btn-ghost btn-sm">
             {/* Benson */}
-              {t.qna}
+              💡 {t.qna}
             </Link>
             <button className="btn btn-ghost btn-sm" onClick={() => setMyCoursesOpen(true)}>
               📚 {t.myCourses}

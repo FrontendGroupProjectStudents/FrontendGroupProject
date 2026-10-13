@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import LanguageSwitch from './LanguageSwitch';
 import CartWidget from './CartWidget';
@@ -8,36 +8,35 @@ import RegisterModal from './RegisterModal';
 import MyCoursesWidget from './MyCoursesWidget';
 
 const Header = () => {
-  const { lang, toggleLang, currentUser, handleLogout, setMyCoursesOpen } = useApp();
+  const { lang, toggleLang, currentUser, handleLogout, setMyCoursesOpen, searchQuery, setSearchQuery } = useApp();
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
 
   const navigate = useNavigate();
-  const { pathname } = useLocation();
-  const [searchParams] = useSearchParams();
+  const { pathname, state } = useLocation();
 
   // ========== 下拉選單狀態 ==========
   const [courseDropdownOpen, setCourseDropdownOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const dropdownRef = useRef(null);
 
-  // ========== 搜尋框狀態 ==========
-  // 搜尋關鍵字放在網址 ?q=xxx，首頁（/）與 /filter 都會讀取
-  const isSearchRoute = pathname === '/' || pathname === '/filter';
-  const urlKeyword = isSearchRoute ? searchParams.get('q') || '' : '';
-  const [keyword, setKeyword] = useState(urlKeyword);
+  // ========== 搜尋框 ==========
+  // 關鍵字存在 AppContext（searchQuery），不需要放在網址
   const inputRef = useRef(null);
-  const composingRef = useRef(false); // 中文輸入法組字中不觸發搜尋
 
-  // 網址的關鍵字改變（例如跳去其他頁）時，同步搜尋框內容
-  useEffect(() => {
-    if (!composingRef.current) setKeyword(urlKeyword);
-  }, [urlKeyword]);
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    // 在首頁以外的頁面輸入 → 跳回首頁顯示搜尋結果
+    // （state.focusSearch 讓新載入的 Header 把焦點放回搜尋框）
+    if (pathname !== '/') {
+      navigate('/', { state: { focusSearch: true } });
+    }
+  };
 
-  // 從其他頁面第一次輸入而跳轉到首頁時，Header 會重新載入，
-  // 這裡把焦點放回搜尋框，讓使用者可以繼續打字
+  // 從其他頁面第一次輸入而跳到首頁時，Header 會重新載入，
+  // 這裡把焦點放回搜尋框、游標移到最後，讓使用者可以繼續打字
   useEffect(() => {
-    if (urlKeyword && inputRef.current) {
+    if (state?.focusSearch && inputRef.current) {
       const el = inputRef.current;
       el.focus();
       el.setSelectionRange(el.value.length, el.value.length);
@@ -45,25 +44,17 @@ const Header = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const applySearch = (value) => {
-    if (value.trim()) {
-      // 有內容 → 帶著關鍵字回到首頁（首頁會顯示搜尋結果）
-      navigate(
-        { pathname: '/', search: `?q=${encodeURIComponent(value)}` },
-        { replace: pathname === '/' }
-      );
-    } else if (isSearchRoute) {
-      // 沒有內容 → 顯示原本的首頁
-      navigate('/', { replace: true });
-    }
+  // 點擊 Logo / 首頁：清空搜尋並回到首頁內容
+  // （已在首頁時網址不變，不會觸發換頁，所以要手動清空 searchQuery）
+  const handleGoHome = () => {
+    setSearchQuery('');
+    window.scrollTo(0, 0);
   };
 
-  const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setKeyword(value);
-    if (composingRef.current) return;
-    applySearch(value);
-  };
+  // 離開首頁（例如進入課程詳情、關於我們）時清空搜尋，避免舊關鍵字殘留
+  useEffect(() => {
+    if (pathname !== '/') setSearchQuery('');
+  }, [pathname, setSearchQuery]);
 
   // 讀取courses.json取得分類列表
   useEffect(() => {
@@ -124,11 +115,11 @@ const Header = () => {
     <>
       <header className="site-header">
         <div className="header-inner">
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={handleGoHome}>
             <span className="logo-mark">思捷</span>
           </Link>
           <nav className="main-nav" aria-label="主導航">
-            <Link to="/" className="nav-link">{t.home}</Link>
+            <Link to="/" className="nav-link" onClick={handleGoHome}>{t.home}</Link>
 
             {/* ========== 課程下拉按鈕區域 ========== */}
             <div className="nav-dropdown-wrap" ref={dropdownRef}>
@@ -176,13 +167,8 @@ const Header = () => {
               ref={inputRef}
               type="search"
               className="header-search-input"
-              value={keyword}
+              value={searchQuery}
               onChange={handleSearchChange}
-              onCompositionStart={() => { composingRef.current = true; }}
-              onCompositionEnd={(e) => {
-                composingRef.current = false;
-                applySearch(e.target.value);
-              }}
               placeholder={t.searchPlaceholder}
               aria-label={t.searchPlaceholder}
             />

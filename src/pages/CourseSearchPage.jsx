@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CourseCard from '../components/CourseCard';
 import { useApp } from '../context/AppContext';
 
 // Layer 2：課程搜尋頁
-// 搜尋關鍵字來自 Header 搜尋框，透過網址 ?q=xxx 傳入。
+// 搜尋關鍵字來自 Header 搜尋框，透過 AppContext 的 searchQuery 傳入。
 // embedded = true 時（由 HomePage 內嵌顯示）不重複渲染 Header / Footer，
 // 這樣輸入時 Header 不會重新載入，搜尋框才不會失去焦點。
 const CourseSearchPage = ({ embedded = false }) => {
-  const { lang } = useApp();
-  const [searchParams] = useSearchParams();
-  const searchQuery = searchParams.get('q') || '';
+  const { lang, searchQuery } = useApp();
 
   const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,8 +30,8 @@ const CourseSearchPage = ({ embedded = false }) => {
 
         setCategory({
           catId: 'ALL',
-          catName: '搜尋課程',
-          catNameEn: 'Search course',
+          catName: '所有課程',
+          catNameEn: 'All Courses',
           catDesc: '瀏覽思捷網上IT專業培訓提供的所有優質課程。',
           catDescEn: 'Browse all available courses offered by Sijie Online IT Academy.',
           catImage: 'images/courses/CourseFilterImages.jpg',

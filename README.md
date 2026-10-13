@@ -73,3 +73,8 @@ GitHub Pages 是純靜態託管，**沒有後端伺服器，無法把註冊資�
 - JavaScript（ES6+）
 - React 18 + React Router 6
 - Vite（建置工具）
+
+
+Presentation: https://drive.google.com/drive/folders/1QMTokfX9EvNz-a3GAxKukXikyxJ3uefg?usp=drive_link
+
+

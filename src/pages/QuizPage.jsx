@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useApp } from '../context/AppContext';
@@ -53,6 +53,7 @@ const QuizPage = () => {
   const [hasStartedQuiz, setHasStartedQuiz] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
+  const firstQuestionRef = useRef(null);
 
   useEffect(() => {
     const loadJson = (fileName) => fetch(`${import.meta.env.BASE_URL}data/${fileName}`)
@@ -72,6 +73,14 @@ const QuizPage = () => {
       })
       .finally(() => setIsLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (!hasStartedQuiz || quizQuestions.length === 0 || !firstQuestionRef.current) return;
+
+    const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0;
+    const questionTop = window.scrollY + firstQuestionRef.current.getBoundingClientRect().top;
+    window.scrollTo({ top: questionTop - headerHeight, behavior: 'smooth' });
+  }, [hasStartedQuiz, quizQuestions]);
 
   const score = quizQuestions.reduce((total, question) => {
     const selectedOption = question.options[answers[question.id]];
@@ -118,7 +127,7 @@ const QuizPage = () => {
           </p>
         ) : (
           <>
-            <section className="content-section quiz-setup">
+            <section className={`content-section quiz-setup${lang === 'en' ? ' quiz-setup--english' : ''}`}>
               <fieldset className="quiz-course-fieldset">
                 <legend>{lang === 'zh' ? '選擇課程' : 'Choose courses'}</legend>
                 <p className="quiz-course-hint">
@@ -157,7 +166,12 @@ const QuizPage = () => {
             {hasStartedQuiz && (
               <form className="content-section qna-quiz" onSubmit={handleSubmit}>
                 {quizQuestions.map((question, questionIndex) => (
-                  <fieldset className="qna-question" key={question.id} disabled={submitted}>
+                  <fieldset
+                    className="qna-question"
+                    key={question.id}
+                    ref={questionIndex === 0 ? firstQuestionRef : null}
+                    disabled={submitted}
+                  >
                     <legend>
                       {questionIndex + 1}. {lang === 'zh' ? question.q : question.qe}
                     </legend>

@@ -73,17 +73,19 @@ export const AppProvider = ({ children }) => {
       if (callback) callback({ ok: false, message: 'NOT_LOGGED_IN' });
       return;
     }
-    // 增加積分
+    // 先同步儲存購買紀錄，避免頁面重新載入時丟失。
+    const savedCourses = courseStorage.getPurchasedCourses();
+    if (savedCourses.some((item) => item.courseId === course.courseId)) {
+      if (callback) callback({ ok: false, message: 'ALREADY_PURCHASED' });
+      return;
+    }
+    const newList = [...savedCourses, course];
+    courseStorage.savePurchasedCourses(newList);
+    setPurchasedCourses(newList);
+
+    // 只有首次購買先增加積分
     userStorage.addPoints(course.pointsReward || 0);
     setCurrentUser(userStorage.getCurrentUser());
-
-    setPurchasedCourses((prevList) => {
-      const exists = prevList.some(item => item.courseId === course.courseId);
-      if (exists) return prevList;
-      const newList = [...prevList, course];
-      courseStorage.savePurchasedCourses(newList);
-      return newList;
-    });
 
     if (callback) callback({ ok: true });
   }, [currentUser]);

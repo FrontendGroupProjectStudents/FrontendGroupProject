@@ -76,7 +76,6 @@ const Header = () => {
         <div className="header-inner">
           <Link to="/" className="logo">
             <span className="logo-mark">思捷</span>
-            <span className="logo-text">{t.site}</span>
           </Link>
           <nav className="main-nav" aria-label="主導航">
             <Link to="/" className="nav-link">{t.home}</Link>

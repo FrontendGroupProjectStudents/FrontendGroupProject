@@ -121,7 +121,7 @@ main { min-height: 60vh; }
   background: linear-gradient(135deg, #3c2378 0%, #6c3ef0 60%, #8b5cf6 100%);
   color: #fff;
   text-align: center;
-  padding: 84px 20px;
+  padding: 54px 20px;
 }
 .hero-title { font-size: 2.6rem; font-weight: 800; margin-bottom: 16px; letter-spacing: 0.5px; }
 .hero-sub { font-size: 1.15rem; max-width: 640px; margin: 0 auto 28px; opacity: 0.92; }
@@ -149,7 +149,7 @@ main { min-height: 60vh; }
   text-align: center;
   transition: transform 0.2s ease;
 }
-.feature-card:hover { transform: translateY(-4px); }
+/* .feature-card:hover { transform: translateY(-4px); } */
 .feature-icon { font-size: 2.2rem; display: block; margin-bottom: 10px; }
 .feature-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .feature-card p { color: var(--muted); font-size: 0.92rem; }
@@ -357,16 +357,16 @@ main { min-height: 60vh; }
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 44px 20px 20px;
+  padding: 24px 20px 20px;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 28px;
 }
-.footer-col h4 { color: #fff; margin-bottom: 12px; font-size: 1.05rem; }
+.footer-col h4 { color: #fff; margin-bottom: 5px; font-size: 1rem; }
 .footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li { margin-bottom: 2px; font-size: 0.8rem;}
 .footer-col a:hover { color: #fff; }
-.footer-about p { color: #aaa; font-size: 0.9rem; }
+.footer-about p { color: #aaa; font-size: 0.8rem; }
 .copyright { text-align: center; padding: 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 0.85rem; }
 
 /* ===== 輔助頁 ===== */

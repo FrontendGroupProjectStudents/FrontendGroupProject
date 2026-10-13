@@ -7,7 +7,7 @@ import { useApp } from '../context/AppContext';
 // Layer 3：課程詳情頁（18 門課共用同一模板，內容由 courses.json 按 courseId 讀取）
 const CourseDetailPage = () => {
   const { courseId } = useParams();
-  const { lang, addToCart, cart } = useApp();
+  const { lang, addToCart, cart, purchasedCourses, currentUser } = useApp();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -48,6 +48,7 @@ const CourseDetailPage = () => {
       buyNow: '立即購買',
       addCart: '加入購物車',
       inCart: '已在購物車',
+      purchased: '已購買',
       earnPoints: '購買可賺取積分',
       points: '積分',
       whatLearn: '你將學到',
@@ -74,6 +75,7 @@ const CourseDetailPage = () => {
       buyNow: 'Buy Now',
       addCart: 'Add to Cart',
       inCart: 'In Cart',
+      purchased: 'Purchased',
       earnPoints: 'Earn points by purchasing',
       points: 'points',
       whatLearn: 'What You Will Learn',
@@ -109,6 +111,7 @@ const CourseDetailPage = () => {
   }
 
   const inCart = cart.some((c) => c.courseId === course.courseId);
+  const isPurchased = Boolean(currentUser) && purchasedCourses.some((c) => c.courseId === course.courseId);
 
   return (
     <>
@@ -142,7 +145,9 @@ const CourseDetailPage = () => {
               </span>
             </div>
             <div className="course-cta-row">
-              {inCart ? (
+              {isPurchased ? (
+                <button className="btn btn-disabled" disabled>{t.purchased}</button>
+              ) : inCart ? (
                 <button className="btn btn-disabled" disabled>{t.inCart}</button>
               ) : (
                 <button className="btn btn-primary btn-lg" onClick={() => { addToCart(course); alert(t.added); }}>

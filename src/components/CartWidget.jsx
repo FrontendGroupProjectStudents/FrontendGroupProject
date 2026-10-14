@@ -1,8 +1,10 @@
 import { useApp } from '../context/AppContext';
 import { Link } from 'react-router-dom';
+import { useToast } from '../components/Toast';
 // 購物車圖示按鈕 + 側邊購物車抽屜
 const CartWidget = () => {
   const { lang, cart, cartOpen, setCartOpen, removeFromCart, clearCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
+  const { showToast } = useToast();
   const t = {
     zh: {
       cart: '購物車',
@@ -39,7 +41,7 @@ const CartWidget = () => {
 
   const handleCheckout = () => {
     if (!currentUser) {
-      alert(t.loginPrompt);
+      showToast(t.loginPrompt);
       setCartOpen(false);
       return;
     }
@@ -56,17 +58,18 @@ const CartWidget = () => {
       duplicateNames.forEach(name => {
         alertMsg += t.courseAlreadyBoughtPrefix.replace('{courseName}', name) + '\n';
       });
-      alert(alertMsg);
+      showToast(alertMsg);
       return;
     }
 
     const pointsEarned = cart.reduce((sum, c) => sum + (c.pointsReward || 0), 0);
     cart.forEach((c) => purchaseCourse(c));
-    alert(t.purchased.replace('{pts}', pointsEarned));
+    showToast(t.purchased.replace('{pts}', pointsEarned));
     clearCart();
+    setTimeout(() => {
     window.location.reload();
-  };
-
+  }, 2000);
+  }
   return (
     <>
       <button className="btn btn-ghost btn-sm cart-trigger" onClick={() => setCartOpen(!cartOpen)}>

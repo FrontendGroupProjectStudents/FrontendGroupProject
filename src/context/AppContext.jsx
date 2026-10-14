@@ -16,16 +16,18 @@ export const AppProvider = ({ children }) => {
 
   // ==========【我的課程狀態】==========
   const [myCoursesOpen, setMyCoursesOpen] = useState(false);
-  // ✅ 初始值直接呼叫 storage，不再手動 localStorage + safeParse
+  // 只讀取目前登入會員的購買紀錄。
   const [purchasedCourses, setPurchasedCourses] = useState(() => {
-    return courseStorage.getPurchasedCourses();
+    const user = userStorage.getCurrentUser();
+    return courseStorage.getPurchasedCourses(user?.username);
   });
 
-  // 初始化：讀取本地使用者、購物車、已購課程，風格統一
+  // 初始化：購買紀錄必須與目前登入會員一致。
   useEffect(() => {
-    setCurrentUser(userStorage.getCurrentUser());
-    setCart(cartStorage.getCart());
-    setPurchasedCourses(courseStorage.getPurchasedCourses());
+    const user = userStorage.getCurrentUser();
+    setCurrentUser(user);
+    setCart(cartStorage.getCart(user?.username));
+    setPurchasedCourses(courseStorage.getPurchasedCourses(user?.username));
   }, []);
 
   const toggleLang = useCallback(() => {
@@ -39,7 +41,13 @@ export const AppProvider = ({ children }) => {
   const handleLogin = useCallback((username, password) => {
     const res = userStorage.login(username, password);
     if (res.ok) {
-      setCurrentUser(userStorage.getCurrentUser());
+      const user = userStorage.getCurrentUser();
+      const ownedCourses = courseStorage.getPurchasedCourses(user?.username);
+      cartStorage.transferGuestCartToUser(user?.username, ownedCourses);
+      setCurrentUser(user);
+      setPurchasedCourses(ownedCourses);
+      setCart(cartStorage.getCart(user?.username));
+      setCartOpen(false);
     }
     return res;
   }, []);
@@ -51,6 +59,9 @@ export const AppProvider = ({ children }) => {
   const handleLogout = useCallback(() => {
     userStorage.logout();
     setCurrentUser(null);
+    setPurchasedCourses([]);
+    setCart(cartStorage.getCart(null));
+    setCartOpen(false);
   }, []);
 
   const addToCart = useCallback((course) => {
@@ -62,6 +73,11 @@ export const AppProvider = ({ children }) => {
   const removeFromCart = useCallback((courseId) => {
     cartStorage.removeFromCart(courseId);
     setCart(cartStorage.getCart());
+  }, []);
+
+  const clearCart = useCallback(() => {
+    cartStorage.clearCart();
+    setCart([]);
   }, []);
 
   const awardPoints = useCallback((amount) => {
@@ -78,13 +94,13 @@ export const AppProvider = ({ children }) => {
       return;
     }
     // 先同步儲存購買紀錄，避免頁面重新載入時丟失。
-    const savedCourses = courseStorage.getPurchasedCourses();
+    const savedCourses = courseStorage.getPurchasedCourses(currentUser.username);
     if (savedCourses.some((item) => item.courseId === course.courseId)) {
       if (callback) callback({ ok: false, message: 'ALREADY_PURCHASED' });
       return;
     }
     const newList = [...savedCourses, course];
-    courseStorage.savePurchasedCourses(newList);
+    courseStorage.savePurchasedCourses(currentUser.username, newList);
     setPurchasedCourses(newList);
 
     // 只有首次購買先增加積分
@@ -105,6 +121,7 @@ export const AppProvider = ({ children }) => {
     cart,
     addToCart,
     removeFromCart,
+    clearCart,
     awardPoints,
     purchaseCourse,
     cartOpen,

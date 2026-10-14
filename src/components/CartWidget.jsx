@@ -2,7 +2,7 @@ import { useApp } from '../context/AppContext';
 import { Link } from 'react-router-dom';
 // 購物車圖示按鈕 + 側邊購物車抽屜
 const CartWidget = () => {
-  const { lang, cart, cartOpen, setCartOpen, removeFromCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
+  const { lang, cart, cartOpen, setCartOpen, removeFromCart, clearCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
   const t = {
     zh: {
       cart: '購物車',
@@ -63,7 +63,7 @@ const CartWidget = () => {
     const pointsEarned = cart.reduce((sum, c) => sum + (c.pointsReward || 0), 0);
     cart.forEach((c) => purchaseCourse(c));
     alert(t.purchased.replace('{pts}', pointsEarned));
-    localStorage.removeItem('sijie_cart');
+    clearCart();
     window.location.reload();
   };
 

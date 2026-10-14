@@ -4,9 +4,16 @@
 
 const USERS_KEY = 'sijie_users';
 const CURRENT_USER_KEY = 'sijie_current_user';
+// 舊共用 cart key 保留，但不再自動歸屬任何會員。
 const CART_KEY = 'sijie_cart';
-// 我的課程 加到 storage.js
+const CART_GUEST_KEY = `${CART_KEY}_guest`;
+const CART_USER_PREFIX = `${CART_KEY}_user_`;
+const getCartKey = (username) => username
+  ? `${CART_USER_PREFIX}${encodeURIComponent(username)}`
+  : CART_GUEST_KEY;
+// 舊版共用購買紀錄保留不動，避免把未能確認擁有者的資料指派給錯誤會員。
 const PURCHASED_COURSES_KEY = 'sijie_purchased_courses';
+const PURCHASED_COURSES_USER_PREFIX = `${PURCHASED_COURSES_KEY}_user_`;
 
 const safeParse = (raw, fallback) => {
   if (!raw) return fallback;
@@ -76,12 +83,15 @@ export const userStorage = {
   },
 };
 
+// 會員各自擁有購物車；未登入訪客使用獨立 Guest 購物車。
+// username 未傳入時以目前登入使用者為準。
 export const cartStorage = {
-  getCart() {
-    return safeParse(localStorage.getItem(CART_KEY), []);
+  getCart(username = userStorage.getCurrentUser()?.username) {
+    const cart = safeParse(localStorage.getItem(getCartKey(username)), []);
+    return Array.isArray(cart) ? cart : [];
   },
-  saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  saveCart(cart, username = userStorage.getCurrentUser()?.username) {
+    localStorage.setItem(getCartKey(username), JSON.stringify(cart));
   },
   addToCart(course) {
     const cart = cartStorage.getCart();
@@ -94,17 +104,39 @@ export const cartStorage = {
     const cart = cartStorage.getCart().filter((c) => c.courseId !== courseId);
     cartStorage.saveCart(cart);
   },
-  clearCart() {
-    localStorage.removeItem(CART_KEY);
+  clearCart(username = userStorage.getCurrentUser()?.username) {
+    localStorage.removeItem(getCartKey(username));
+  },
+  // 登入時延續訪客加入購物車的流程；不轉移已經購買或重複課程。
+  transferGuestCartToUser(username, purchasedCourses = []) {
+    if (!username) return;
+    const guestCart = cartStorage.getCart(null);
+    if (guestCart.length === 0) return;
+    const memberCart = cartStorage.getCart(username);
+    const existingIds = new Set(memberCart.map((c) => c.courseId));
+    const purchasedIds = new Set(purchasedCourses.map((c) => c.courseId));
+    for (const course of guestCart) {
+      if (!existingIds.has(course.courseId) && !purchasedIds.has(course.courseId)) {
+        memberCart.push(course);
+        existingIds.add(course.courseId);
+      }
+    }
+    cartStorage.saveCart(memberCart, username);
+    cartStorage.clearCart(null);
   },
 };
 
-// 我的課程 加到 storage.js
+// 每名會員各自儲存購買紀錄；不自動遷移無法核實擁有者的舊共用資料。
 export const courseStorage = {
-  getPurchasedCourses() {
-    return safeParse(localStorage.getItem(PURCHASED_COURSES_KEY), []);
+  getPurchasedCourses(username) {
+    if (!username) return [];
+    const key = `${PURCHASED_COURSES_USER_PREFIX}${encodeURIComponent(username)}`;
+    const courses = safeParse(localStorage.getItem(key), []);
+    return Array.isArray(courses) ? courses : [];
   },
-  savePurchasedCourses(list) {
-    localStorage.setItem(PURCHASED_COURSES_KEY, JSON.stringify(list));
-  }
-}
+  savePurchasedCourses(username, list) {
+    if (!username) return;
+    const key = `${PURCHASED_COURSES_USER_PREFIX}${encodeURIComponent(username)}`;
+    localStorage.setItem(key, JSON.stringify(list));
+  },
+};

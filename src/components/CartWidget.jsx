@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { useToast } from '../components/Toast';
 // 購物車圖示按鈕 + 側邊購物車抽屜
 const CartWidget = () => {
-  const { lang, cart, cartOpen, setCartOpen, removeFromCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
-  const { showToast } = useToast();
+  const { lang, cart, cartOpen, setCartOpen, removeFromCart, clearCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
   const t = {
     zh: {
       cart: '購物車',
@@ -64,8 +63,8 @@ const CartWidget = () => {
 
     const pointsEarned = cart.reduce((sum, c) => sum + (c.pointsReward || 0), 0);
     cart.forEach((c) => purchaseCourse(c));
-    showToast(t.purchased.replace('{pts}', pointsEarned));
-    localStorage.removeItem('sijie_cart');
+    alert(t.purchased.replace('{pts}', pointsEarned));
+    clearCart();
     setTimeout(() => {
     window.location.reload();
   }, 2000);

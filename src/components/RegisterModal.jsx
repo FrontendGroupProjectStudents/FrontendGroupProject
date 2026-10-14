@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { useToast } from '../components/Toast';
 
 const RegisterModal = ({ closeModal }) => {
   const { lang, handleRegister, handleLogin } = useApp();
+  const { showToast } = useToast();
   const [form, setForm] = useState({ username: '', email: '', password: '', confirm: '' });
   const [error, setError] = useState('');
 
@@ -49,7 +51,8 @@ const RegisterModal = ({ closeModal }) => {
     const res = handleRegister(form.username, form.password, form.email);
     if (!res.ok) return setError(t.userExists);
     handleLogin(form.username, form.password);
-    alert(t.success);
+    // alert(t.success);
+    showToast(t.success);   
     closeModal();
   };
 

@@ -3,11 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useApp } from '../context/AppContext';
+import { useToast } from '../components/Toast';
 
 // Layer 3：課程詳情頁（18 門課共用同一模板，內容由 courses.json 按 courseId 讀取）
 const CourseDetailPage = () => {
   const { courseId } = useParams();
   const { lang, addToCart, cart, purchasedCourses, currentUser } = useApp();
+  const { showToast } = useToast();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -150,7 +152,7 @@ const CourseDetailPage = () => {
               ) : inCart ? (
                 <button className="btn btn-disabled" disabled>{t.inCart}</button>
               ) : (
-                <button className="btn btn-primary btn-lg" onClick={() => { addToCart(course); alert(t.added); }}>
+                <button className="btn btn-primary btn-lg" onClick={() => { addToCart(course); showToast(t.added); }}>
                   {t.addCart}
                 </button>
               )}

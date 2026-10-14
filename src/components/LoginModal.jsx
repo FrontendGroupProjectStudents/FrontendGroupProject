@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { useToast } from '../components/Toast';
 
 const LoginModal = ({ closeModal }) => {
   const { lang, handleLogin } = useApp();
+  const { showToast } = useToast();
   const [form, setForm] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
 
@@ -39,9 +41,16 @@ const LoginModal = ({ closeModal }) => {
     if (!form.username || !form.password) return setError(t.fillAll);
     const res = handleLogin(form.username, form.password);
     if (!res.ok) return setError(t.badCreds);
-    alert(t.success);
+
+//     alert(t.success);
+    showToast(t.success);    
     closeModal();
-  };
+//     setTimeout(() => {
+//   closeModal();
+// }, 3000);
+};
+
+
 
   return (
     <div className="modal-backdrop" onClick={closeModal}>

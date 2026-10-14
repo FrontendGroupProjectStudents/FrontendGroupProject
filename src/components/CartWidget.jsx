@@ -4,6 +4,7 @@ import { useToast } from '../components/Toast';
 // 購物車圖示按鈕 + 側邊購物車抽屜
 const CartWidget = () => {
   const { lang, cart, cartOpen, setCartOpen, removeFromCart, clearCart, currentUser, purchaseCourse, purchasedCourses } = useApp();
+  const { showToast } = useToast();
   const t = {
     zh: {
       cart: '購物車',
@@ -63,7 +64,7 @@ const CartWidget = () => {
 
     const pointsEarned = cart.reduce((sum, c) => sum + (c.pointsReward || 0), 0);
     cart.forEach((c) => purchaseCourse(c));
-    alert(t.purchased.replace('{pts}', pointsEarned));
+    showToast(t.purchased.replace('{pts}', pointsEarned));
     clearCart();
     setTimeout(() => {
     window.location.reload();

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CategoryCard from '../components/CategoryCard';
@@ -8,12 +7,11 @@ import { useApp } from '../context/AppContext';
 
 
 const HomePage = () => {
-  const { lang } = useApp();
+  const { lang, searchQuery } = useApp();
   const [categories, setCategories] = useState([]);
-  const [searchParams] = useSearchParams();
 
   // Header 搜尋框有輸入內容 → 顯示搜尋結果；沒有內容 → 顯示首頁
-  const hasSearch = (searchParams.get('q') || '').trim() !== '';
+  const hasSearch = searchQuery.trim() !== '';
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/courses.json`)
@@ -56,7 +54,7 @@ const HomePage = () => {
       <Header />
 
       {hasSearch ? (
-        // 搜尋結果（關鍵字由 Header 經網址 ?q= 傳入）
+        // 搜尋結果（關鍵字由 Header 經 AppContext 傳入）
         <CourseSearchPage embedded />
       ) : (
         <main>

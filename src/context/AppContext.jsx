@@ -10,6 +10,10 @@ export const AppProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
 
+  // ==========【搜尋關鍵字】==========
+  // Header 搜尋框寫入，HomePage / CourseSearchPage 讀取
+  const [searchQuery, setSearchQuery] = useState('');
+
   // ==========【我的課程狀態】==========
   const [myCoursesOpen, setMyCoursesOpen] = useState(false);
   // ✅ 初始值直接呼叫 storage，不再手動 localStorage + safeParse
@@ -107,7 +111,9 @@ export const AppProvider = ({ children }) => {
     setCartOpen,
     myCoursesOpen,
     setMyCoursesOpen,
-    purchasedCourses
+    purchasedCourses,
+    searchQuery,
+    setSearchQuery,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

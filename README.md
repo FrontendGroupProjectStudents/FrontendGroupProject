@@ -2,6 +2,14 @@
 
 一個以 React + Vite 開發的多頁商業教學網站前端專案，可部署到 GitHub Pages。
 
+## 網站詳細簡介
+
+https://drive.google.com/drive/folders/1QMTokfX9EvNz-a3GAxKukXikyxJ3uefg?usp=drive_link
+
+## 網站演示
+
+https://frontendgroupprojectstudents.github.io/FrontendGroupProject/#/
+
 ## 專案特色
 
 - **25 個頁面**：1 個首頁（Layer 1）+ 6 個課程分類頁（Layer 2）+ 18 個課程詳情頁（Layer 3）+ 輔助頁（關於我們 / 聯絡我們 / 私隱政策 / 404）
@@ -56,12 +64,14 @@ npm run preview    # 預覽建置結果
 ## 如何新增 / 修改課程
 
 所有課程內容都集中於 `public/data/courses.json`，修改該檔案即可：
+
 - 在分類的 `courses` 陣列中新增物件，指定唯一 `courseId`、標題、售價、評分、大綱、`videoUrl`（可填影片連結）等。
 - 圖片放在 `public/images/courses/` 並把檔名填入 `imageUrl`。
 
 ## 會員與積分說明（重要）
 
 GitHub Pages 是純靜態託管，**沒有後端伺服器，無法把註冊資料寫回 .json 檔案**。因此：
+
 - 會員帳號、登入狀態、積分、購物車皆儲存於**訪客自己的瀏覽器**（localStorage）。
 - 每位訪客各有一份獨立資料；清除瀏覽器資料會遺失。
 - 若需跨裝置永久保存會員資料，必須另外架設後端伺服器（如 Node.js API + 資料庫）。
@@ -73,8 +83,3 @@ GitHub Pages 是純靜態託管，**沒有後端伺服器，無法把註冊資�
 - JavaScript（ES6+）
 - React 18 + React Router 6
 - Vite（建置工具）
-
-
-Presentation: https://drive.google.com/drive/folders/1QMTokfX9EvNz-a3GAxKukXikyxJ3uefg?usp=drive_link
-
-
